@@ -1,0 +1,10 @@
+@use "../../abstracts" as *;
+.breadcrumbs {
+  padding: 1.5rem 0;
+  a {
+    text-decoration: none;
+  }
+  a:hover {
+    color: $clr-orange;
+  }
+}

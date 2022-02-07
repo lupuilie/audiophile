@@ -1,0 +1,92 @@
+@use "../abstracts" as *;
+
+footer {
+  margin-top: $sections-spacing;
+  background: $clr-black;
+  color: $clr-white-50;
+  .wrapper {
+    display: grid;
+    gap: 1rem;
+    padding: 2rem 0;
+    position: relative;
+    text-align: center;
+    grid-template-areas:
+      "logo"
+      "nav"
+      "p"
+      "copyright"
+      "icons";
+  }
+  .wrapper::before {
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 100px;
+    background-color: $clr-orange;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .logo {
+    grid-area: logo;
+  }
+  nav {
+    grid-area: nav;
+  }
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  p {
+    grid-area: p;
+    font-weight: 500;
+  }
+  small {
+    grid-area: copyright;
+    font-weight: 700;
+  }
+  .social-links {
+    grid-area: icons;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    path {
+      transition: fill 0.2s ease;
+      cursor: pointer;
+    }
+    svg:hover path {
+      fill: $clr-orange;
+    }
+  }
+  @media (min-width: $bp-md) {
+    .wrapper {
+      text-align: left;
+      padding: 3rem 0;
+      gap: 1.5rem;
+      grid-template-areas:
+        "logo logo"
+        "nav nav"
+        "p p"
+        "copyright icons";
+    }
+    .wrapper::before {
+      left: 0;
+      transform: translateX(0);
+    }
+    .nav-links {
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+    .social-links {
+      justify-content: flex-end;
+    }
+  }
+  @media (min-width: $bp-desktop) {
+    .wrapper {
+      grid-template-areas:
+        "logo nav"
+        "p icons"
+        "copyright icons";
+    }
+  }
+}

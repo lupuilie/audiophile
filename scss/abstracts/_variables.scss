@@ -1,0 +1,33 @@
+//Variables
+
+$default-ff: "Manrope", sans-serif;
+
+/* Colors */
+$black: rgb(0, 0, 0);
+$white: rgb(255, 255, 255);
+
+$clr-orange: #d87d4a;
+$clr-light-orange: #fbaf85;
+$clr-red: #cd2c2c;
+
+$clr-white-10: rgba($white, 0.1);
+$clr-white-50: rgba($white, 0.5);
+$clr-white-75: rgba($white, 0.75);
+
+$clr-black-25: rgba($black, 0.25);
+$clr-black-40: rgba($black, 0.4);
+$clr-black-50: rgba($black, 0.5);
+$clr-black-75: rgba($black, 0.75);
+$clr-black: #191919;
+$clr-black-hover: #4c4c4c;
+
+$clr-gray: #f1f1f1;
+$clr-light-gray: #fafafa;
+
+$clr-gray-100: #cfcfcf;
+
+/* Spacing */
+$sections-spacing: 4rem;
+
+/* Borders */
+$default-radius: 8px;

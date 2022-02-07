@@ -1,0 +1,9 @@
+@use "../../abstracts" as *;
+
+.view-more {
+  margin-top: $sections-spacing;
+  text-align: center;
+  .btn {
+    padding: 1rem 3rem;
+  }
+}

@@ -1,0 +1,13 @@
+$dimensions: 12, 13, 14, 15, 18, 24, 30, 35, 40, 45;
+
+@each $i in $dimensions {
+  .feather-#{nth($i, 1)} {
+    width: #{nth($i, 1)}px;
+    height: #{nth($i, 1)}px;
+  }
+}
+
+.feather {
+  vertical-align: middle;
+  text-align: center;
+}

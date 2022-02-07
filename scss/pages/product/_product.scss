@@ -1,0 +1,67 @@
+@use "../../abstracts" as *;
+
+.product-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .image {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: $default-radius;
+  }
+  .description {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+  }
+  .new-product {
+    text-transform: uppercase;
+    color: $clr-orange;
+    font-weight: 400;
+  }
+  .title {
+    font-size: 28px;
+    line-height: 38px;
+    letter-spacing: 2px;
+  }
+  p {
+    color: $clr-black-50;
+    font-weight: 600;
+  }
+  .price {
+    font-weight: bold;
+    color: $black;
+    font-size: 18px;
+  }
+
+  .cart-add {
+    display: flex;
+    gap: 1rem;
+    height: 3rem;
+  }
+
+  @media (min-width: $bp-md) {
+    flex-direction: row;
+    .title {
+      font-size: 40px;
+      line-height: 44px;
+      letter-spacing: 1.5px;
+    }
+    .product-image {
+      margin-right: 1.5rem;
+    }
+  }
+  @media (min-width: $bp-tablet) {
+    .product-image {
+      margin-right: 5rem;
+    }
+  }
+}

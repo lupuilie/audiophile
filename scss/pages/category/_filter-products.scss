@@ -1,0 +1,29 @@
+@use "../../abstracts" as *;
+
+.filter-products {
+  padding-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .sort-control-group {
+    max-width: 550px;
+    margin-right: 0.5rem;
+  }
+  .view-select {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .view-select-label {
+    display: none;
+    white-space: nowrap;
+  }
+  .btn {
+    padding: 0.5rem;
+  }
+  @media (min-width: 700px) {
+    .view-select-label {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@use "../../abstracts" as *;
+
+.checkout {
+  .input-group {
+    margin: 13px 0;
+  }
+  .sub-title {
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .checkout h1 {
+    font-size: 28px;
+    line-height: 38px;
+    letter-spacing: 2px;
+  }
+}
+@media (min-width: $bp-desktop) {
+  .row {
+    display: flex;
+    gap: 1rem;
+    & > * {
+      width: 100%;
+    }
+  }
+  .w-50 {
+    width: 50%;
+    padding-right: 0.5rem;
+  }
+}

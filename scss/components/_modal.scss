@@ -1,0 +1,51 @@
+@use "../abstracts" as *;
+
+.modal-container {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+  background: $clr-black-50;
+  overflow: hidden;
+}
+
+.modal {
+  position: absolute;
+  top: 7rem;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  .modal-wrapper {
+    position: relative;
+  }
+  .modal-wrapper > * {
+    position: absolute;
+    width: 100%;
+    max-width: 450px;
+    right: 0;
+    background: $white;
+    padding: 1.5rem;
+    border-radius: $default-radius;
+    animation: slideIn 0.5s ease;
+    animation-fill-mode: forwards;
+  }
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .modal-close {
+    color: $white;
+    display: none;
+    z-index: 1;
+  }
+  @media (min-width: $bp-tablet) {
+    .modal-close {
+      display: block;
+      position: fixed;
+      right: 1rem;
+      top: 2rem;
+    }
+  }
+}

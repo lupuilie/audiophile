@@ -1,0 +1,118 @@
+@use "../../abstracts/" as *;
+.products-gallery {
+  margin-top: 2rem;
+  margin-bottom: $sections-spacing;
+  .product {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .product:not(:first-of-type) {
+    margin: 2.5rem 0;
+  }
+
+  .image {
+    width: 100%;
+    text-align: center;
+  }
+
+  img {
+    border-radius: $default-radius;
+    transition: transform 0.3s ease;
+  }
+  img:hover {
+    transform: scale(1.02);
+  }
+  .description {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+  }
+  .overline {
+    text-transform: uppercase;
+    color: $clr-orange;
+  }
+  .product-title {
+    font-size: 28px;
+    line-height: 38px;
+    letter-spacing: 2px;
+  }
+  p {
+    color: $clr-black-50;
+  }
+  .price {
+    font-weight: 700;
+    color: $black;
+  }
+  @media (min-width: $bp-md) {
+    .product-title {
+      font-size: 40px;
+      line-height: 44px;
+      letter-spacing: 1.5px;
+    }
+  }
+  @media (min-width: $bp-tablet) {
+    .description {
+      padding: 0 3rem;
+    }
+  }
+  @media (min-width: $bp-desktop) {
+    .product {
+      flex-direction: row;
+      gap: 0;
+    }
+    &:not(.grid) .product:nth-child(even) .image {
+      order: 2;
+    }
+  }
+}
+
+.products-gallery.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+  gap: 1rem;
+  .product {
+    flex-direction: column;
+    margin: 0;
+    gap: 0;
+  }
+  img {
+    max-height: 200px;
+  }
+
+  .description {
+    padding: 0;
+    gap: 0;
+    height: 100%;
+    text-align: left;
+  }
+
+  .product-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 1.3px;
+    font-weight: 500;
+    text-align: center;
+    height: 50px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  p {
+    display: none;
+  }
+  .price {
+    display: block;
+    padding: 0.5rem 0;
+  }
+  .overline {
+    display: none;
+  }
+}

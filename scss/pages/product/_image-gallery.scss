@@ -1,0 +1,30 @@
+@use "../../abstracts" as *;
+
+.image-gallery {
+  margin-top: $sections-spacing;
+  display: grid;
+  gap: 0.75rem;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: $default-radius;
+  }
+  @media (min-width: $bp-md) {
+    grid-template-areas:
+      "a a c c c"
+      "b b c c c";
+    .image-1 {
+      grid-area: a;
+    }
+    .image-2 {
+      grid-area: b;
+    }
+    .image-3 {
+      grid-area: c;
+    }
+  }
+  @media (min-width: $bp-tablet) {
+    gap: 1rem;
+  }
+}

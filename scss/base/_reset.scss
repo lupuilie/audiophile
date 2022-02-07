@@ -1,0 +1,33 @@
+@use "../abstracts" as *;
+
+body {
+  font-family: $default-ff;
+  background-color: $clr-light-gray;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+::selection {
+  background-color: $clr-light-orange;
+}
+
+img {
+  display: inline-block;
+  max-width: 100%;
+}
+
+a {
+  font-weight: 500;
+  color: $clr-black-50;
+  text-decoration: none;
+  &:hover {
+    color: $clr-black-75;
+  }
+}

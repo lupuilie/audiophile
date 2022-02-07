@@ -1,0 +1,19 @@
+@use "../../abstracts" as *;
+
+.checkout-sections {
+  display: grid;
+  gap: 2rem;
+  & > * {
+    background-color: $white;
+    border-radius: $default-radius;
+    box-shadow: 0 10px 20px #e2e2e2;
+    padding: 1.5rem;
+  }
+  @media (min-width: $bp-desktop) {
+    align-items: flex-start;
+    grid-template-columns: repeat(3, 1fr);
+    .checkout {
+      grid-column: 1 / span 2;
+    }
+  }
+}

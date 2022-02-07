@@ -1,0 +1,15 @@
+@use "../abstracts" as *;
+
+.modal-user {
+  .modal-form > * {
+    margin: 0.5rem 0;
+  }
+  a:hover {
+    color: $clr-orange;
+  }
+  .submit-btn {
+    padding: 1rem;
+    width: 100%;
+    line-height: 1;
+  }
+}

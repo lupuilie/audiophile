@@ -1,0 +1,18 @@
+@use "../../abstracts/" as *;
+@use "../../base/typography" as *;
+
+.category-heading {
+  background-color: $clr-black;
+  color: $white;
+  text-align: center;
+  padding: 2rem;
+  font-size: 28px;
+  line-height: 38px;
+  letter-spacing: 2px;
+  @media (min-width: $bp-md) {
+    font-size: 40px;
+    line-height: 44px;
+    letter-spacing: 1.5px;
+    padding: 4rem;
+  }
+}

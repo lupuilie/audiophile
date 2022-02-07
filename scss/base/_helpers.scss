@@ -1,0 +1,37 @@
+@use "../abstracts" as *;
+
+.container {
+  width: 88vw;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1110px;
+}
+
+.mobile-menu-overlay {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  z-index: 1;
+  background: $clr-black-75;
+  @media (min-width: $bp-desktop) {
+    display: none;
+  }
+}
+
+.hidden {
+  visibility: hidden;
+  display: none;
+}
+
+.orange {
+  color: $clr-orange;
+}
+
+.link {
+  color: $black;
+  text-decoration: none;
+  &:hover {
+    color: $clr-orange;
+  }
+}

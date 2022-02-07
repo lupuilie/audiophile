@@ -1,0 +1,134 @@
+@use "../../abstracts" as *;
+
+.best-products {
+  margin-top: $sections-spacing;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  img {
+    border-radius: $default-radius;
+  }
+}
+
+.zx9-speaker {
+  background-color: $clr-orange;
+  background-image: url("../images/home/desktop/pattern-circles.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% -7.8rem;
+
+  display: flex;
+  flex-direction: column;
+  color: $white;
+
+  padding: 3rem 2rem;
+  text-align: center;
+  overflow: hidden;
+  border-radius: $default-radius;
+
+  img {
+    width: 170px;
+    padding-bottom: 2rem;
+  }
+
+  .title span {
+    display: block;
+  }
+  .desc-text {
+    padding: 1.5rem 0;
+    color: $clr-white-75;
+    max-width: 42ch;
+    margin: 0 auto;
+  }
+  @media (min-width: 700px) {
+    background-position: 50% -8rem;
+    background-size: contain;
+  }
+  @media (min-width: $bp-tablet) {
+    img {
+      width: 200px;
+    }
+  }
+  @media (min-width: $bp-desktop) {
+    flex-direction: row;
+    padding-top: 5rem;
+    padding-bottom: 0;
+    background-position: -13rem -10rem;
+    background-size: cover;
+    img {
+      width: 350px;
+      padding-bottom: 0;
+      margin-bottom: -17px;
+      margin-left: 5rem;
+    }
+    .description {
+      text-align: left;
+      margin-left: 7rem;
+      margin-top: 1rem;
+    }
+  }
+  @media (min-width: 1200px) {
+    background-position: -16.5rem -12rem;
+  }
+}
+
+.zx7-speaker {
+  position: relative;
+  img {
+    display: block; // inline-block adds some space after img
+    width: 100%;
+    object-fit: cover;
+  }
+  .description {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 1.5rem;
+    & > * {
+      margin: 1rem 0;
+    }
+    @media (min-width: $bp-tablet) {
+      left: 4rem;
+    }
+    @media (min-width: $bp-tablet) {
+      left: 5.5rem;
+    }
+  }
+}
+
+.yx1-earphones {
+  display: grid;
+  grid-auto-rows: 1fr;
+  gap: 1.5rem;
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  .description {
+    background-color: $clr-gray;
+    border-radius: $default-radius;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .wrapper {
+    margin-left: 2.5rem;
+    * {
+      margin: 1rem 0;
+    }
+  }
+  @media (min-width: $bp-md) {
+    grid-template-columns: repeat(2, 1fr);
+    .wrapper {
+      margin-left: 0;
+      align-self: center;
+    }
+  }
+  @media (min-width: $bp-desktop) {
+    .wrapper {
+      align-self: flex-start;
+      margin-left: 4rem;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+@use "../abstracts" as *;
+
+.product-categories {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  .category {
+    width: 100%;
+    margin-top: 50px;
+    background: $clr-gray;
+    text-align: center;
+    padding: 15px 0;
+    border-radius: $default-radius;
+  }
+  img {
+    max-width: 140px;
+    margin-top: -60px;
+    height: 130px;
+  }
+  .title {
+    margin-top: -10px;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    color: $black;
+  }
+  .shop-link {
+    color: $clr-black-50;
+    svg {
+      color: $clr-orange;
+    }
+  }
+  .link:hover .shop-link {
+    color: $clr-orange;
+  }
+
+  @media (min-width: 500px) {
+    flex-direction: row;
+  }
+  @media (min-width: $bp-tablet) {
+    gap: 1rem;
+  }
+}

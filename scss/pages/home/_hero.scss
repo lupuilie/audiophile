@@ -1,0 +1,62 @@
+@use "../../abstracts" as *;
+
+.hero {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+  background-color: $clr-black;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  .content {
+    color: $white;
+    text-align: center;
+    & > * {
+      margin: 1.3rem auto;
+    }
+  }
+  .overline {
+    color: $clr-white-50;
+  }
+  p {
+    color: $clr-white-75;
+    max-width: 40ch;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    height: 120%;
+    width: 100%;
+    top: -6rem;
+    left: 0;
+    background-image: url(../images/home/mobile/image-header.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+  }
+  @media (min-width: $bp-md) {
+    &::after {
+      background-image: url(../images/home/tablet/image-header.jpg);
+    }
+    h1 {
+      max-width: 15ch;
+    }
+  }
+  @media (min-width: $bp-tablet) {
+    &::after {
+      background-size: contain;
+    }
+  }
+  @media (min-width: $bp-desktop) {
+    &::after {
+      background-image: url(../images/home/desktop/image-hero.jpg);
+    }
+    .content {
+      text-align: left;
+      & > * {
+        margin: 1rem 0;
+      }
+    }
+  }
+}

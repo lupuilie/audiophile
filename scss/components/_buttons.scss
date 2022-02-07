@@ -1,0 +1,66 @@
+@use "../abstracts" as *;
+
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.btn {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  outline: none;
+  padding: 0.5rem 2rem;
+  text-decoration: none;
+  transition: 0.2s ease;
+  transition-property: background-color, color;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: $clr-orange;
+  color: white;
+  &:hover,
+  &:focus {
+    background-color: $clr-light-orange;
+    color: $white;
+  }
+}
+
+.btn-secondary {
+  background-color: $black;
+  color: $white;
+  &:hover,
+  &:focus {
+    background-color: $clr-black-hover;
+    color: $white;
+  }
+}
+
+.btn-light {
+  background-color: $white;
+  border: 1px solid $clr-gray-100;
+  border-radius: 3px;
+  &:not(.active):hover,
+  &:not(.active):focus {
+    color: $clr-orange;
+  }
+  &.active {
+    background-color: #e5e5e5;
+    color: $clr-orange;
+  }
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: $black;
+  border: 1px solid $black;
+  &:hover,
+  &:focus {
+    background-color: $black;
+    color: $white;
+  }
+}
