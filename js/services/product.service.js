@@ -1,4 +1,4 @@
-import GET from "../utils/get.js";
+import GET from "../utils/GET.js";
 
 const apiEndpoint = "./api/products.json";
 
