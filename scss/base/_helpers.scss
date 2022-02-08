@@ -23,6 +23,21 @@
   visibility: hidden;
   display: none;
 }
+.hidden-xs {
+  @media (max-width: $bp-md) {
+    display: none !important;
+  }
+}
+.hidden-md {
+  @media (min-width: $bp-md) and (max-width: $bp-desktop) {
+    display: none !important;
+  }
+}
+.hidden-lg {
+  @media (min-width: $bp-desktop) {
+    display: none !important;
+  }
+}
 
 .orange {
   color: $clr-orange;
