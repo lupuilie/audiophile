@@ -1,6 +1,7 @@
 @use "../../abstracts" as *;
 
 .hero {
+  min-height: 600px;
   padding-top: 7rem;
   padding-bottom: 7rem;
   background-color: $clr-black;
@@ -11,7 +12,7 @@
     color: $white;
     text-align: center;
     & > * {
-      margin: 1.3rem auto;
+      margin: 1rem auto;
     }
   }
   .overline {
@@ -35,15 +36,17 @@
     background-size: cover;
     z-index: -1;
   }
-  @media (min-width: $bp-md) {
+  @media (min-width: 460px) {
     &::after {
       background-image: url(../images/home/tablet/image-header.jpg);
     }
+  }
+  @media (min-width: $bp-md) {
     h1 {
       max-width: 15ch;
     }
   }
-  @media (min-width: $bp-tablet) {
+  @media (min-width: 720px) {
     &::after {
       background-size: contain;
     }
