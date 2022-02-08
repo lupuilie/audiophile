@@ -751,7 +751,7 @@ header .badge {
 }
 
 footer {
-  margin-top: 4rem;
+  margin-top: 5.5rem;
   background: #191919;
   color: rgba(255, 255, 255, 0.5);
 }
@@ -890,11 +890,11 @@ footer .social-links svg:hover path {
 }
 
 .categories {
-  margin-top: 4rem;
+  margin-top: 5.5rem;
 }
 
 .best-products {
-  margin-top: 4rem;
+  margin-top: 5.5rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -1037,7 +1037,7 @@ footer .social-links svg:hover path {
 }
 
 .best-gear {
-  margin-top: 4rem;
+  margin-top: 5.5rem;
   display: grid;
 }
 .best-gear img {
@@ -1138,7 +1138,7 @@ footer .social-links svg:hover path {
 
 .products-gallery {
   margin-top: 2rem;
-  margin-bottom: 4rem;
+  margin-bottom: 5.5rem;
 }
 .products-gallery .product {
   display: flex;
@@ -1251,7 +1251,7 @@ footer .social-links svg:hover path {
 }
 
 .view-more {
-  margin-top: 4rem;
+  margin-top: 5.5rem;
   text-align: center;
 }
 .view-more .btn {
@@ -1339,8 +1339,8 @@ footer .social-links svg:hover path {
   display: flex;
   flex-direction: column;
   font-weight: 600;
-  margin-top: 4rem;
-  gap: 4rem;
+  margin-top: 5.5rem;
+  gap: 5.5rem;
 }
 .about .features {
   width: 100%;
@@ -1398,7 +1398,7 @@ footer .social-links svg:hover path {
 }
 
 .image-gallery {
-  margin-top: 4rem;
+  margin-top: 5.5rem;
   display: grid;
   gap: 0.75rem;
 }
@@ -1430,16 +1430,16 @@ footer .social-links svg:hover path {
 }
 
 .related-products {
-  margin-top: 4rem;
+  margin-top: 5.5rem;
 }
 .related-products .section-heading {
   text-align: center;
 }
 .related-products .products-list {
-  margin-top: 4rem;
+  margin-top: 3rem;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 3rem;
 }
 .related-products .product {
   text-align: center;

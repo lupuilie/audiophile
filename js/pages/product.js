@@ -6,6 +6,7 @@ import {
   productSection,
   aboutSection,
   imageGallerySection,
+  relatedProductsSection,
 } from "./product/sections.js";
 
 const url = new URL(window.location);
@@ -24,7 +25,7 @@ async function getProduct() {
   }
 }
 
-async function productPage(productInfo) {
+function productPage(productInfo) {
   console.log("productInfo", productInfo);
   const container = document.querySelector("main .container");
   const categoriesSection = document.querySelector("main .categories");
@@ -32,6 +33,7 @@ async function productPage(productInfo) {
   addSection(productSection(productInfo));
   addSection(aboutSection(productInfo));
   addSection(imageGallerySection(productInfo));
+  addSection(relatedProductsSection(productInfo));
 
   /* Add section after 'Go Back' and before Categories */
   function addSection(node) {

@@ -7,19 +7,19 @@ import { onSubmitAddToCart } from "../../events.js";
 /* section.product-wrapper */
 export function productSection(productInfo) {
   if (!productInfo) return;
+
+  const { image: productImages, name, description, price } = productInfo;
   const productWrapper = createElement("section", {
     className: "product-wrapper",
   });
 
   const imageDiv = createElement("div", { className: "image" });
-  const productImages = {
-    mobile: productInfo.image.mobile,
-    tablet: productInfo.image.tablet,
-    desktop: productInfo.image.desktop,
-    alt: `${productInfo.name} thumbnail`,
-  };
-  const image = Picture({ ...productImages, className: "product-image" });
-  imageDiv.append(image);
+  const pictureEl = Picture({
+    ...productImages,
+    alt: `${name} thumbnail`,
+    className: "product-image",
+  });
+  imageDiv.append(pictureEl);
 
   const descriptionDiv = createElement("div", { className: "description" });
   if (productInfo.new)
@@ -31,14 +31,12 @@ export function productSection(productInfo) {
     );
 
   descriptionDiv.append(
-    createElement("h1", { textContent: productInfo.name, className: "title" })
+    createElement("h1", { textContent: name, className: "title" })
   );
-  descriptionDiv.append(
-    createElement("p", { textContent: productInfo.description })
-  );
+  descriptionDiv.append(createElement("p", { textContent: description }));
   descriptionDiv.append(
     createElement("h2", {
-      textContent: `$ ${productInfo.price}`,
+      textContent: `$ ${price}`,
       className: "price",
     })
   );
@@ -123,4 +121,49 @@ export function imageGallerySection(productInfo) {
 }
 
 /* section.related-products */
-export function relatedProductsSection() {}
+export function relatedProductsSection(productInfo) {
+  const { others: relatedProductsList } = productInfo;
+
+  const relatedProducts = createElement("section", {
+    className: "related-products",
+  });
+  relatedProducts.append(
+    createElement("h3", {
+      textContent: "You may also like",
+      className: "section-heading",
+    })
+  );
+
+  const productsList = createElement("div", { className: "products-list" });
+  relatedProductsList.forEach((product) => {
+    const article = createElement("article", { className: "product" });
+    console.log(product);
+
+    const productImage = Picture({
+      ...product.image,
+      alt: `${product.name} thumbnail`,
+    });
+
+    const productInfo = createElement("div", { className: "product-info" });
+    productInfo.append(
+      createElement("h4", {
+        textContent: product.name,
+        className: "product-name",
+      })
+    );
+    productInfo.append(
+      createElement("a", {
+        textContent: "See Product",
+        href: `./product.html?p=${product.slug}`,
+        className: "btn btn-primary",
+      })
+    );
+
+    article.append(productImage, productInfo);
+    productsList.append(article);
+  });
+
+  relatedProducts.append(productsList);
+
+  return relatedProducts;
+}
