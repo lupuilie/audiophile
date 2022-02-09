@@ -1,0 +1,23 @@
+.filter-widgets-wrapper {
+}
+.filter-widgets-group {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e9e9e9;
+  display: flex;
+  gap: 1rem;
+  .filter-item {
+  }
+  .filter-widget-label {
+    display: block;
+  }
+  select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    width: 150px;
+  }
+  option {
+    padding: 5px;
+  }
+}

@@ -1,16 +1,8 @@
 @use "../abstracts" as *;
 
-button {
-  background-color: transparent;
-  border: none;
-  outline: none;
-  cursor: pointer;
-}
 .btn {
   display: inline-block;
-  font-weight: 700;
   font-size: 13px;
-  text-transform: uppercase;
   border: 1px solid transparent;
   outline: none;
   padding: 0.5rem 2rem;
@@ -18,9 +10,14 @@ button {
   transition: 0.2s ease;
   transition-property: background-color, color;
   white-space: nowrap;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 
 .btn-primary {
+  font-weight: 700;
+  text-transform: uppercase;
   background-color: $clr-orange;
   color: white;
   &:hover,

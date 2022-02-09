@@ -1,6 +1,6 @@
 @use "../../abstracts/" as *;
 .products-gallery {
-  margin-top: 2rem;
+  margin-top: 1rem;
   margin-bottom: $sections-spacing;
   .product {
     display: flex;
@@ -47,6 +47,7 @@
   .price {
     font-weight: 700;
     color: $black;
+    white-space: nowrap;
   }
   @media (min-width: $bp-md) {
     .product-title {
@@ -73,7 +74,7 @@
 
 .products-gallery.grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
   gap: 1rem;
   .product {
     flex-direction: column;

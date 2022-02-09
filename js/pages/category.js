@@ -1,17 +1,32 @@
-import ProductGallery from "../components/ProductGallery/index.js";
+import ProductService from "../services/product.service.js";
+import redirect from "../utils/redirect.js";
+import { capitalize } from "../utils/string.js";
 
-const listViewBtn = document.querySelector("#list-view-btn");
-const gridViewBtn = document.querySelector("#grid-view-btn");
+import { setHeading, productsGallerySection } from "./category/sections.js";
 
-const categoryProducts = new ProductGallery();
+const url = new URL(window.location);
+const urlCategory = url.searchParams.get("c");
+const urlSort = url.searchParams.get("sort");
+const Products = new ProductService();
 
-listViewBtn.addEventListener("click", () => {
-  categoryProducts.setListView();
-  gridViewBtn.classList.remove("active");
-  listViewBtn.classList.add("active");
-});
-gridViewBtn.addEventListener("click", () => {
-  listViewBtn.classList.remove("active");
-  gridViewBtn.classList.add("active");
-  categoryProducts.setGridView();
-});
+if (!urlCategory) redirect(404);
+if (urlCategory) getProducts();
+
+async function getProducts() {
+  try {
+    const productsData = await Products.getByCategory(urlCategory);
+    CategoryPage(productsData);
+  } catch (err) {
+    redirect(404);
+  }
+}
+
+function CategoryPage(productsData) {
+  const title = capitalize(urlCategory);
+  const container = document.querySelector("main .container");
+  const productGallery = new productsGallerySection(productsData);
+
+  document.title = title;
+  setHeading(title);
+  container.prepend(productGallery.section);
+}

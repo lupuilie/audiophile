@@ -13,10 +13,22 @@ class ProductService {
         if (!singleProduct) return Promise.reject("Product not found");
         return singleProduct;
       } catch (err) {
-        Promise.reject(err);
+        throw err;
       }
     };
-    this.getByCategory = function (categoryName) {};
+    this.getByCategory = async function (categoryName) {
+      try {
+        const products = await GET(apiEndpoint);
+        const filteredByCategory = products.filter(
+          (product) => product.category === categoryName
+        );
+        if (filteredByCategory.length === 0) throw "Category not found";
+
+        return filteredByCategory;
+      } catch (err) {
+        throw err;
+      }
+    };
   }
 }
 

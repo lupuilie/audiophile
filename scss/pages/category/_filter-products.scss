@@ -1,31 +1,37 @@
 @use "../../abstracts" as *;
 
 .filter-products {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  margin-top: 1rem;
   padding: 0.5rem;
   background: $white;
   border: 1px solid $clr-gray-200;
-  .sort-control-group {
-    max-width: 550px;
-    margin-right: 0.5rem;
-  }
-  .view-select {
+  .sort-wrapper {
     display: flex;
-    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
     gap: 0.5rem;
   }
-  .view-select-label {
-    display: none;
+  .select-view-label {
     white-space: nowrap;
   }
-  .btn {
-    padding: 0.5rem;
-  }
-  @media (min-width: 700px) {
-    .view-select-label {
-      display: block;
+  .select-view {
+    display: flex;
+    align-items: center;
+    .btn {
+      padding: 0 0.5rem;
+      height: 100%;
     }
+    .btn:first-of-type {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-right: none;
+    }
+    .btn:last-of-type {
+      border-top-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+  @media (min-width: $bp-tablet) {
+    padding: 1rem;
   }
 }
