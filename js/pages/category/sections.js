@@ -50,7 +50,7 @@ export class productsGallerySection {
     const productLink = createElement("a", {
       textContent: "See Product",
       className: "btn btn-primary",
-      href: `/product.html?p=${product.slug}`,
+      href: `./product.html?p=${product.slug}`,
     });
     description.append(productTitle, productDesc, productPrice, productLink);
 
