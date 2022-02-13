@@ -9,14 +9,27 @@ class ProductsGallerySection {
     this.node = createElement("section", { className: "products-gallery" });
 
     this.getProducts = () => allProducts;
+    this.currentFilters = {};
+    this.currentSort = null;
     this.getFilteredProducts = () => filteredProducts;
     this.setFilteredProducts = (products) => (filteredProducts = products);
-    this.applyFilter = (filter) => {
-      const filtered = filterData(this.getProducts(), filter);
+    this.applyFilter = (newFilter) => {
+      this.currentFilters = { ...this.currentFilters, ...newFilter };
+
+      /* Delete filter if is empty  */
+      for (const filter in this.currentFilters) {
+        if (this.currentFilters[filter].length === 0)
+          delete this.currentFilters[filter];
+      }
+
+      const filtered = filterData(this.getProducts(), this.currentFilters);
       this.setFilteredProducts(filtered);
+      if (this.currentSort) return this.applySort(this.currentSort);
       this.setProducts(this.getFilteredProducts());
     };
+
     this.applySort = (sort) => {
+      this.currentSort = sort;
       let sortedProducts = [...this.getFilteredProducts()];
       switch (sort) {
         case "name-asc":
@@ -32,6 +45,7 @@ class ProductsGallerySection {
           sortedProducts.sort((a, b) => b.price - a.price);
           break;
         default:
+          this.currentSort = null;
           sortedProducts = this.getFilteredProducts();
       }
       this.setProducts(sortedProducts);

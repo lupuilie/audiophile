@@ -24,7 +24,6 @@ class SortWidget {
     this.element.classList.toggle("active");
   }
   getElement() {
-    console.log(this.sortItem);
     this.element = createElement("div", {
       className: "sort-control-item",
     });

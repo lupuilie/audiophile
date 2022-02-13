@@ -13,10 +13,10 @@ class FilterWidget {
   }
 
   applyFilter() {
-    const filterByCheckedFilters = buildFilter({
+    const widgetFilters = buildFilter({
       [this.filter.property]: this.filter.checked,
     });
-    this.productsGallery.applyFilter(filterByCheckedFilters);
+    this.productsGallery.applyFilter(widgetFilters);
   }
 
   getElement() {
@@ -36,6 +36,7 @@ class FilterWidget {
       className: "filter-remove-btn",
     });
     filterRemoveBtn.innerHTML = feather.icons.x.toSvg({ class: "feather-17" });
+    filterRemoveBtn.ariaLabel = `Remove filters for ${this.filter.label}`;
     filterRemove.append(filterRemoveBtn);
 
     const filterTitle = createElement("span", {

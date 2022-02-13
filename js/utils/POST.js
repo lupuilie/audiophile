@@ -1,21 +1,20 @@
-async function POST(url = "", data = {}) {
+async function POST(url = "", body = {}) {
   if (!url) return;
 
   try {
     const response = await fetch(url, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json; charset=UTF-8",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(body),
     });
-    if (response.ok) {
-      return response.json();
-    } else {
-      return Promise.reject(`Cannot POST data to ${url}`);
-    }
+    const data = await response.json();
+    if (data.error) throw data;
+    if (!response.ok) throw `Error fetching ${url}`;
+    return data;
   } catch (err) {
-    return Promise.reject(err);
+    throw err;
   }
 }
 

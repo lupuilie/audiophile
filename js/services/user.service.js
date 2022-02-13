@@ -1,4 +1,3 @@
-import { Cart } from "../main.js";
 import POST from "../utils/POST.js";
 
 const apiEndpoints = {
@@ -8,25 +7,21 @@ const apiEndpoints = {
 
 class UserService {
   constructor() {
-    this.logged = {
-      userName: null,
-      token: null,
-    };
+    this.logged = false;
 
     this.login = async function (user) {
       try {
         const userInfo = await POST(apiEndpoints.login, user);
-        this.logged.token = await userInfo.token;
-        this.logged.userName = "Lupu Ilie";
+        if (userInfo.token) this.token = userInfo.token;
+        return true;
       } catch (err) {
-        console.log(err);
+        throw err;
       }
     };
 
     this.register = async function (user) {
       try {
         const userInfo = await POST(apiEndpoints.register, user);
-        console.log(userInfo);
         return userInfo;
       } catch (err) {
         console.log(err);
