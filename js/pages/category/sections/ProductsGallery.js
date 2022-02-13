@@ -13,6 +13,10 @@ class ProductsGallerySection {
     this.currentSort = null;
     this.getFilteredProducts = () => filteredProducts;
     this.setFilteredProducts = (products) => (filteredProducts = products);
+    this.removeFilter = (filter) => {
+      if (this.currentFilters[filter]) delete this.currentFilters[filter];
+      this.applyFilter();
+    };
     this.applyFilter = (newFilter) => {
       this.currentFilters = { ...this.currentFilters, ...newFilter };
 
@@ -21,10 +25,10 @@ class ProductsGallerySection {
         if (this.currentFilters[filter].length === 0)
           delete this.currentFilters[filter];
       }
-
       const filtered = filterData(this.getProducts(), this.currentFilters);
       this.setFilteredProducts(filtered);
       if (this.currentSort) return this.applySort(this.currentSort);
+
       this.setProducts(this.getFilteredProducts());
     };
 

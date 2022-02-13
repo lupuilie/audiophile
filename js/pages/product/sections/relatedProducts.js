@@ -17,7 +17,6 @@ function relatedProductsSection(productInfo) {
   const productsList = createElement("div", { className: "products-list" });
   relatedProductsList.forEach((product) => {
     const article = createElement("article", { className: "product" });
-    console.log(product);
 
     const productImage = Picture({
       ...product.image,

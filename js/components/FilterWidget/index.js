@@ -121,7 +121,7 @@ class FilterWidget {
         checkbox.checked = false;
       });
       updateFilter.call(this);
-      this.applyFilter();
+      this.productsGallery.removeFilter(this.filter.property);
       formControl.value = "";
     });
 
