@@ -1,4 +1,4 @@
-import createElement from "../../../utils/createElement.js";
+import createElement from "./../../../utils/createElement.js";
 
 function categoryHeading(text) {
   return createElement("h1", {

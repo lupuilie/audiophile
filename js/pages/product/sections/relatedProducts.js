@@ -1,5 +1,5 @@
-import createElement from "../../../utils/createElement.js";
-import Picture from "../../../components/Picture/index.js";
+import createElement from "./../../../utils/createElement.js";
+import Picture from "./../../../components/Picture/index.js";
 
 function relatedProductsSection(productInfo) {
   const { others: relatedProductsList } = productInfo;

@@ -1,6 +1,6 @@
-import ProductService from "../services/product.service.js";
+import ProductService from "./../services/product.service.js";
 import displayError from "./displayError.js";
-import { addSection } from "../elements.js";
+import { addSection } from "./../elements.js";
 
 import sections from "./product/sections/index.js";
 

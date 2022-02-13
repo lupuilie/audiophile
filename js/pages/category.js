@@ -1,8 +1,7 @@
-import ProductService from "../services/product.service.js";
-import { capitalize } from "../utils/string.js";
-import { buildFilter } from "../utils/filter.js";
-import redirect from "../utils/redirect.js";
-import { addSection, mainEl } from "../elements.js";
+import ProductService from "./../services/product.service.js";
+import { capitalize } from "./../utils/string.js";
+import redirect from "./../utils/redirect.js";
+import { addSection, mainEl } from "./../elements.js";
 
 import displayError from "./displayError.js";
 import sections from "./category/sections/index.js";

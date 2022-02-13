@@ -1,6 +1,6 @@
-import createElement from "../../../utils/createElement.js";
-import Picture from "../../../components/Picture/index.js";
-import QtySelector from "../../../components/QtySelector/index.js";
+import createElement from "./../../../utils/createElement.js";
+import Picture from "./../../../components/Picture/index.js";
+import QtySelector from "./../../../components/QtySelector/index.js";
 
 function productWrapper(productInfo) {
   if (!productInfo) return;

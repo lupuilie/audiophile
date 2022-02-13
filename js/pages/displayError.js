@@ -1,4 +1,4 @@
-import createElement from "../utils/createElement.js";
+import createElement from "./../utils/createElement.js";
 
 function displayError(err) {
   const breadcrumbs = document.querySelector(".breadcrumbs");

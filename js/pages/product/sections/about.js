@@ -1,4 +1,4 @@
-import createElement from "../../../utils/createElement.js";
+import createElement from "./../../../utils/createElement.js";
 
 export function aboutSection(productInfo) {
   if (!productInfo) return;

@@ -1,6 +1,6 @@
-import createElement from "../../../utils/createElement.js";
-import Picture from "../../../components/Picture/index.js";
-import { filterData } from "../../../utils/filter.js";
+import createElement from "./../../../utils/createElement.js";
+import Picture from "./../../../components/Picture/index.js";
+import { filterData } from "./../../../utils/filter.js";
 
 class ProductsGallerySection {
   constructor(productsData) {

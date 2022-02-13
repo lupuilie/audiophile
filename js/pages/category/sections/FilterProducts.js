@@ -1,6 +1,6 @@
-import createElement from "../../../utils/createElement.js";
-import FilterWidget from "../../../components/FilterWidget/index.js";
-import SortWidget from "../../../components/SortWidget/index.js";
+import createElement from "./../../../utils/createElement.js";
+import FilterWidget from "./../../../components/FilterWidget/index.js";
+import SortWidget from "./../../../components/SortWidget/index.js";
 
 class FilterProductsSection {
   constructor(productsGallery, productFilters, productSorters) {
