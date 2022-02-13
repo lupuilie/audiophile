@@ -22,7 +22,8 @@ class ProductService {
         const filteredByCategory = products.filter(
           (product) => product.category === categoryName
         );
-        if (filteredByCategory.length === 0) throw "Category not found";
+        if (filteredByCategory.length === 0)
+          throw `Category '${categoryName}' not found.`;
 
         return filteredByCategory;
       } catch (err) {

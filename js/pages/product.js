@@ -1,13 +1,8 @@
 import ProductService from "../services/product.service.js";
-import createElement from "../utils/createElement.js";
-import displayError from "./product/displayError.js";
+import displayError from "./displayError.js";
+import { addSection } from "../elements.js";
 
-import {
-  productSection,
-  aboutSection,
-  imageGallerySection,
-  relatedProductsSection,
-} from "./product/sections.js";
+import sections from "./product/sections/index.js";
 
 const url = new URL(window.location);
 const urlProductSlug = url.searchParams.get("p");
@@ -26,17 +21,8 @@ async function getProduct() {
 }
 
 function productPage(productInfo) {
-  console.log("productInfo", productInfo);
-  const container = document.querySelector("main .container");
-  const categoriesSection = document.querySelector("main .categories");
-
-  addSection(productSection(productInfo));
-  addSection(aboutSection(productInfo));
-  addSection(imageGallerySection(productInfo));
-  addSection(relatedProductsSection(productInfo));
-
-  /* Add section after 'Go Back' and before Categories */
-  function addSection(node) {
-    container.insertBefore(node, categoriesSection);
-  }
+  addSection(sections.productWrapper(productInfo));
+  addSection(sections.aboutSection(productInfo));
+  addSection(sections.imageGallerySection(productInfo));
+  addSection(sections.relatedProductsSection(productInfo));
 }

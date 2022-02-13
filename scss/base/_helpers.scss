@@ -23,6 +23,10 @@
   visibility: hidden;
   display: none;
 }
+.invisible {
+  visibility: hidden;
+  opacity: 0;
+}
 .hidden-xs {
   @media (max-width: $bp-md) {
     display: none !important;
@@ -56,6 +60,12 @@
   }
 }
 .visible-sm {
+  display: none !important;
+  @media (max-width: $bp-tablet) {
+    display: block !important;
+  }
+}
+.visible-lg {
   display: none !important;
   @media (max-width: $bp-tablet) {
     display: block !important;

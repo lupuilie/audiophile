@@ -1,4 +1,4 @@
-$dimensions: 12, 13, 14, 15, 18, 24, 30, 35, 40, 45;
+$dimensions: 12, 13, 14, 15, 16, 17, 18, 19, 20, 24, 30, 35, 40, 45;
 
 @each $i in $dimensions {
   .feather-#{nth($i, 1)} {

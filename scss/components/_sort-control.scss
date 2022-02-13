@@ -1,94 +1,73 @@
 @use "../abstracts" as *;
 
 .sort-control-group {
-  display: flex;
-  width: 100%;
-  gap: 0.5rem;
-  font-size: 13px;
-  color: #444;
   .sort-control-item {
     display: flex;
     align-items: center;
-    width: 100%;
   }
   .sort-control-label {
     white-space: nowrap;
+    font-size: 14px;
   }
-  .sort-control-btn-dropdown {
+  .sort-control-inner {
     position: relative;
-    width: 100%;
-  }
-
-  .sort-control-dropdown {
-    opacity: 0;
-    background: $white;
-    border: 1px solid $clr-gray-100;
-    border-top: none;
-    list-style: none;
-    position: absolute;
-    width: 100%;
-    margin-top: -2px;
-    z-index: 1;
-    box-shadow: 0 5px 10px #ddd;
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
-    overflow: hidden;
-    a {
-      padding: 3px 10px;
-      color: #444;
-      width: 100%;
-      display: inline-block;
-    }
-    a:hover {
-      background: $clr-gray-200;
-    }
-  }
-  .sort-control-btn-dropdown.active {
-    .sort-control-dropdown {
-      opacity: 1;
-    }
-  }
-  .sort-control-btn-modal {
-    width: 100%;
   }
   .sort-control-btn {
+    display: block;
+    position: relative;
+    font-size: 14px;
+    width: 150px;
+    padding: 8px;
+    line-height: 1;
+    text-align: left;
     background: $white;
     border: 1px solid $clr-gray-100;
     border-radius: 3px;
-    font-size: 13px;
-    width: 100%;
-    padding: 5px;
-    text-align: center;
-    @media (min-width: $bp-tablet) {
-      padding: 10px;
-      position: relative;
-      text-align: left;
-      min-width: 170px;
-      &::after {
-        content: "";
-        position: absolute;
-        right: 0;
-        height: 100%;
-        width: 20px;
-        top: 0;
-        background-image: url(/images//shared/icons/icon-arrow-down.svg);
-        background-repeat: no-repeat;
-        background-position: center;
-      }
+    color: $clr-black;
+    font-weight: 400;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 5px;
+      width: 15px;
+      height: 100%;
+      background-image: url(/images//shared/icons/icon-arrow-down.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      pointer-events: none;
     }
   }
-  .sort-control-btn-title {
-    display: block;
-    font-weight: 700;
+  .sort-control-dropdown {
+    display: none;
+    list-style: none;
+    position: absolute;
+    background: $white;
+    width: 100%;
+    border: 1px solid $clr-gray-100;
+    border-top: none;
+    z-index: 1;
+    box-shadow: 0 7px 10px #dbdbdb;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    overflow: hidden;
   }
-  .sort-control-btn-option {
+  .sort-control-dropdown a {
+    color: $clr-black;
+    font-size: 14px;
+    width: 100%;
     display: block;
+    padding-left: 8px;
     font-weight: 400;
-    color: $clr-black-75;
   }
-  @media (min-width: $bp-tablet) {
-    .sort-control-item {
-      max-width: 250px;
+  .sort-control-dropdown li:hover,
+  .sort-control-dropdown li.active {
+    background-color: $clr-gray-200;
+  }
+  .sort-control-item.active {
+    .sort-control-dropdown {
+      display: block;
+      margin-top: -2px;
     }
   }
 }
