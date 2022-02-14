@@ -18,9 +18,48 @@ class FilterWidget {
     });
     this.productsGallery.applyFilter(widgetFilters);
   }
+  setFilterTitle(title) {
+    this.filterTitle.textContent = title;
+  }
+  formControlHandler() {
+    const filterListLabels = this.filtersList.querySelectorAll(".filter");
+    filterListLabels.forEach((filterLabel) => {
+      const txtValue = filterLabel.textContent || filterLabel.innerText;
+      const isSearchMatch = txtValue
+        .toLowerCase()
+        .startsWith(this.formControl.value.toLowerCase());
+      if (isSearchMatch) {
+        filterLabel.style.display = "";
+      } else {
+        filterLabel.style.display = "none";
+      }
+    });
+  }
+  onFilterUpdate() {
+    const checked = this.filter.checked;
+    if (checked.length === 0) {
+      this.filterRemove.classList.add("invisible");
+      this.setFilterTitle("Select");
+    }
+    if (checked.length > 0) {
+      this.filterRemove.classList.remove("invisible");
+      const newTitle = checked.map((item) => capitalize(item)).join(", ");
+      this.setFilterTitle(newTitle);
+    }
+  }
+  removeBtnHandler() {
+    this.filter.checked = [];
+    this.productsGallery.removeFilter(this.filter.property);
+    this.filtersList.querySelectorAll("input").forEach((checkbox) => {
+      checkbox.checked = false;
+    });
+    this.formControl.value = "";
+    this.onFilterUpdate();
+    this.formControlHandler();
+  }
 
   getElement() {
-    this.element = createElement("div", { className: "filter-item" });
+    const element = createElement("div", { className: "filter-item" });
     const filterControlLabel = createElement("span", {
       textContent: this.filter.label,
       className: "filter-control-label",
@@ -29,7 +68,7 @@ class FilterWidget {
       className: "filter-item-inner",
     });
     const filterBtn = createElement("div", { className: "filter-btn" });
-    const filterRemove = createElement("div", {
+    this.filterRemove = createElement("div", {
       className: "filter-remove invisible",
     });
     const filterRemoveBtn = createElement("button", {
@@ -37,9 +76,9 @@ class FilterWidget {
     });
     filterRemoveBtn.innerHTML = feather.icons.x.toSvg({ class: "feather-17" });
     filterRemoveBtn.ariaLabel = `Remove filters for ${this.filter.label}`;
-    filterRemove.append(filterRemoveBtn);
+    this.filterRemove.append(filterRemoveBtn);
 
-    const filterTitle = createElement("span", {
+    this.filterTitle = createElement("span", {
       textContent: "Select",
       className: "filter-title",
     });
@@ -47,15 +86,15 @@ class FilterWidget {
     const searchContainer = createElement("div", {
       className: "input-group search-container",
     });
-    const formControl = createElement("input", {
+    this.formControl = createElement("input", {
       type: "text",
       className: "form-control",
       placeholder: "Search",
     });
-    formControl.ariaLabel = `Search in ${this.filter.label} filters list`;
-    searchContainer.append(formControl);
+    this.formControl.ariaLabel = `Search in ${this.filter.label} filters list`;
+    searchContainer.append(this.formControl);
 
-    const filtersList = createElement("div", { className: "filters-list" });
+    this.filtersList = createElement("div", { className: "filters-list" });
     this.filter.options.forEach((option) => {
       const label = createElement("label", { className: "filter" });
       const checkbox = createElement("input", { type: "checkbox" });
@@ -67,70 +106,36 @@ class FilterWidget {
         if (!checkbox.checked) this.filter.checked.splice(idx, 1);
         if (checkbox.checked) this.filter.checked.push(option);
         this.applyFilter();
-        updateFilter.call(this);
+        this.onFilterUpdate();
       });
       const span = createElement("span", { textContent: capitalize(option) });
       label.append(checkbox, span);
-      filtersList.append(label);
-      updateFilter.call(this);
+      this.filtersList.append(label);
+      this.onFilterUpdate();
     });
-
-    /* Functions */
-    function formControlHandler() {
-      console.log("keyup");
-      const filterListLabels = filtersList.querySelectorAll(".filter");
-      filterListLabels.forEach((filterLabel) => {
-        const txtValue = filterLabel.textContent || filterLabel.innerText;
-        const isSearchMatch = txtValue
-          .toLowerCase()
-          .startsWith(formControl.value.toLowerCase());
-        if (isSearchMatch) {
-          filterLabel.style.display = "";
-        } else {
-          filterLabel.style.display = "none";
-        }
-      });
-    }
-    onClickOutside(filterBtn, () => {
-      if (this.element.classList.contains("active"))
-        this.element.classList.remove("active");
-    });
-    function updateFilter() {
-      const checked = this.filter.checked;
-      if (checked.length === 0) {
-        filterRemove.classList.add("invisible");
-        filterTitle.textContent = "Select";
-      }
-      if (checked.length > 0) {
-        filterRemove.classList.remove("invisible");
-        filterTitle.textContent = checked
-          .map((item) => capitalize(item))
-          .join(", ");
-      }
-    }
 
     /* Event Listeners */
-    filterTitle.addEventListener("click", () => {
-      this.element.classList.toggle("active");
+    this.filterTitle.addEventListener("click", () => {
+      element.classList.toggle("active");
     });
-    formControl.addEventListener("keyup", formControlHandler);
-
+    onClickOutside(filterBtn, () => {
+      if (element.classList.contains("active"))
+        element.classList.remove("active");
+    });
+    this.formControl.addEventListener("keyup", () => {
+      this.formControlHandler();
+    });
     filterRemoveBtn.addEventListener("click", () => {
-      this.filter.checked = [];
-      filtersList.querySelectorAll("input").forEach((checkbox) => {
-        checkbox.checked = false;
-      });
-      updateFilter.call(this);
-      this.productsGallery.removeFilter(this.filter.property);
-      formControl.value = "";
+      this.removeBtnHandler();
     });
 
-    filters.append(searchContainer, filtersList);
-    filterBtn.append(filterTitle, filters);
-    filterItemInner.append(filterControlLabel, filterBtn, filterRemove);
-    this.element.append(filterControlLabel, filterItemInner);
+    /* Make Element */
+    filters.append(searchContainer, this.filtersList);
+    filterBtn.append(this.filterTitle, filters);
+    filterItemInner.append(filterControlLabel, filterBtn, this.filterRemove);
+    element.append(filterControlLabel, filterItemInner);
 
-    return this.element;
+    return element;
   }
 }
 
