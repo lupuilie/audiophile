@@ -2,30 +2,48 @@ import UserService from "./services/user.service.js";
 
 import Modal from "./components/Modal/index.js";
 import loginModal from "./modals/login.modal.js";
+import registerModal from "./modals/register.modal.js";
+import loggedUserModal from "./modals/user.modal.js";
+
+import { navbarUserBtn, navbarSearchBtn, navbarCartBtn } from "./elements.js";
 
 const AppModal = new Modal();
-const User = new UserService();
+export const User = new UserService();
 
-export function openSearchModal({ triggeredBy }) {
-  return console.log("navbarSearchClick");
+export const openLoggedUserModal = () => AppModal.show(loggedUserModal());
+export const openRegisterModal = () => AppModal.show(registerModal());
+export const openLoginModal = () => AppModal.show(loginModal());
+export const openSearchModal = () => console.log("navbarSearchClick");
+export const openCartModal = () => {};
+
+export function openUserModal() {
+  if (!User.userInfo) openLoginModal();
+  if (User.userInfo) openLoggedUserModal();
 }
 
-export async function openUserModal({ triggeredBy }) {
-  if (!User.logged) AppModal.show(loginModal(User), { triggeredBy });
-}
-
-export async function openCartModal({ triggeredBy, Cart }) {}
 export const onSubmitAddToCart = (productId, qty) => {
   console.log("onSubmitAddToCart", productId, qty);
 };
+export const logoutUser = () => {
+  User.logout();
+  AppModal.close();
+  console.log(User);
+};
 
 export async function loginUser(userInfo) {
-  console.log("loginUser");
   try {
-    const user = await User.login(userInfo);
-    console.log(user);
-    console.log(User);
-    return { success: true };
+    const login = await User.login(userInfo);
+    if (login) return { success: true };
+  } catch (err) {
+    return err;
+  }
+}
+
+export async function registerUser(userInfo) {
+  try {
+    const register = await User.register(userInfo);
+    if (register.error) throw register.error;
+    if (register.success) return { success: true };
   } catch (err) {
     return err;
   }

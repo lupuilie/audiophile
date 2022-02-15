@@ -1,5 +1,4 @@
 import createElement from "../../utils/createElement.js";
-import { capitalize } from "../../utils/string.js";
 import onClickOutside from "../../utils/onClickOutside.js";
 
 class SortWidget {
