@@ -96,22 +96,24 @@ function registerModal() {
 
     const userInfo = {
       name: nameInput.value,
-      email: emailInput.value,
+      email: emailInput.value.toLowerCase(),
       password: passwordInput.value,
     };
 
     try {
       const register = await registerUser(userInfo);
       if (register.error) throw register.error;
-      if (register.success) openLoginModal();
+      if (register.success) {
+        console.log("user registered");
+        openLoginModal();
+      }
     } catch (err) {
       if (modalError) return (modalError.textContent = capitalize(err));
-      modalForm.prepend(
-        createElement("p", {
-          textContent: capitalize(err),
-          className: "modal-error",
-        })
-      );
+      const newModalError = createElement("p", {
+        textContent: capitalize(err),
+        className: "modal-error",
+      });
+      modalForm.prepend(newModalError);
     }
   }
 

@@ -16,10 +16,9 @@ export function buildFilter(filter) {
 export function filterData(data = [], query = {}) {
   const filteredData = data.filter((item) => {
     for (let key in query) {
-      const keyNotExists = item[key] === undefined;
-      const isNotSameValue = !query[key].includes(item[key]);
-
-      if (keyNotExists || isNotSameValue) return false;
+      const keyNotFound = !item.hasOwnProperty(key);
+      const notMatchingQuery = !query[key].includes(item[key]);
+      if (keyNotFound || notMatchingQuery) return false;
     }
     return true;
   });

@@ -5,8 +5,6 @@ import loginModal from "./modals/login.modal.js";
 import registerModal from "./modals/register.modal.js";
 import loggedUserModal from "./modals/user.modal.js";
 
-import { navbarUserBtn, navbarSearchBtn, navbarCartBtn } from "./elements.js";
-
 const AppModal = new Modal();
 export const User = new UserService();
 
@@ -17,8 +15,9 @@ export const openSearchModal = () => console.log("navbarSearchClick");
 export const openCartModal = () => {};
 
 export function openUserModal() {
-  if (!User.userInfo) openLoginModal();
-  if (User.userInfo) openLoggedUserModal();
+  console.log(User.getLoggedUser());
+  if (!User.getLoggedUser()) openLoginModal();
+  if (User.getLoggedUser()) openLoggedUserModal();
 }
 
 export const onSubmitAddToCart = (productId, qty) => {
@@ -27,7 +26,6 @@ export const onSubmitAddToCart = (productId, qty) => {
 export const logoutUser = () => {
   User.logout();
   AppModal.close();
-  console.log(User);
 };
 
 export async function loginUser(userInfo) {

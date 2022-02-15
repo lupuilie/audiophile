@@ -74,7 +74,7 @@ function loginModal() {
     if (!emailInputValidation || !passwordInputValidation) return;
 
     const userInfo = {
-      email: emailInput.value,
+      email: emailInput.value.toLowerCase(),
       password: passwordInput.value,
     };
     try {

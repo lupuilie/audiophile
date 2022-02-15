@@ -2,7 +2,7 @@ import createElement from "./../utils/createElement.js";
 import { User, logoutUser } from "../events.js";
 
 function loggedUserModal() {
-  const { userInfo } = User;
+  const userInfo = User.getLoggedUser();
   const modalWrapper = createElement("div", {
     className: "container modal-wrapper",
   });
