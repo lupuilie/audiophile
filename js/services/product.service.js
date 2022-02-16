@@ -4,7 +4,17 @@ const apiEndpoint = "./api/products.json";
 
 class ProductService {
   constructor() {}
-  getProduct = async function (productSlug) {
+  async getById(id) {
+    try {
+      const products = await GET(apiEndpoint);
+      const singleProduct = products.find((product) => product.id === id);
+      if (!singleProduct) return Promise.reject("Product not found");
+      return singleProduct;
+    } catch (err) {
+      throw err;
+    }
+  }
+  async getProduct(productSlug) {
     try {
       const products = await GET(apiEndpoint);
       const singleProduct = products.find(
@@ -15,8 +25,8 @@ class ProductService {
     } catch (err) {
       throw err;
     }
-  };
-  getByCategory = async function (categoryName) {
+  }
+  async getByCategory(categoryName) {
     try {
       const products = await GET(apiEndpoint);
       const filteredByCategory = products.filter(
@@ -29,7 +39,7 @@ class ProductService {
     } catch (err) {
       throw err;
     }
-  };
+  }
 }
 
 export default ProductService;

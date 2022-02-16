@@ -212,6 +212,11 @@ body {
   height: 45px;
 }
 
+.feather-100 {
+  width: 100px;
+  height: 100px;
+}
+
 .feather {
   vertical-align: middle;
   text-align: center;
@@ -307,6 +312,14 @@ body {
 
 .orange {
   color: #d87d4a;
+}
+
+.clr-white {
+  color: white;
+}
+
+.clr-black {
+  color: black;
 }
 
 .link {
@@ -680,7 +693,7 @@ body {
   top: 0;
   z-index: 10;
   background: rgba(0, 0, 0, 0.5);
-  overflow: hidden;
+  overflow: auto;
 }
 
 .modal {
@@ -772,8 +785,8 @@ header .badge {
   position: absolute;
   top: -5px;
   right: -10px;
-  height: 19px;
-  width: 19px;
+  height: 20px;
+  width: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1445,7 +1458,7 @@ footer .social-links svg:hover path {
   border-radius: 8px;
 }
 .product-wrapper .description {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -1486,6 +1499,9 @@ footer .social-links svg:hover path {
   }
   .product-wrapper .product-image {
     margin-right: 1.5rem;
+  }
+  .product-wrapper .description {
+    margin-top: 0;
   }
 }
 @media (min-width: 768px) {
@@ -1690,6 +1706,15 @@ footer .social-links svg:hover path {
   color: #d87d4a;
 }
 
+.modal-cart .cart-empty {
+  text-align: center;
+  padding: 0.5rem;
+  color: rgba(0, 0, 0, 0.5);
+}
+.modal-cart .cart-icon {
+  padding: 1rem;
+  color: black;
+}
 .modal-cart .cart-remove-all:hover {
   color: #d87d4a;
 }
@@ -1709,27 +1734,38 @@ footer .social-links svg:hover path {
   display: flex;
   align-items: center;
   gap: 1rem;
+  width: 100%;
 }
 .modal-cart .product img {
   width: 60px;
   border-radius: 8px;
 }
+.modal-cart .product-info {
+  width: 100%;
+  /* fix text-overflow on flex children */
+  min-width: 0;
+}
 .modal-cart .product p {
   font-weight: bold;
   text-transform: uppercase;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .modal-cart .price {
   color: rgba(0, 0, 0, 0.5);
 }
 .modal-cart .qty-selector {
   height: 2rem;
-  width: 6rem;
+  width: 8rem;
 }
 .modal-cart .total {
   display: flex;
   justify-content: space-between;
   padding: 1.5rem 0;
+}
+.modal-cart .total p {
+  color: rgba(0, 0, 0, 0.5);
 }
 .modal-cart .checkout-btn {
   width: 100%;

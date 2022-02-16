@@ -75,9 +75,35 @@ function registerModal() {
     );
   });
 
+  /* Functions */
+  function modalAlert(text) {
+    if (!text) return;
+    let modalAlert = document.querySelector(".modal-alert");
+    if (!modalAlert) {
+      modalAlert = createElement("p", {
+        className: "modal-alert",
+      });
+    }
+    modalAlert.innerHTML = "";
+    modalAlert.append(text);
+    modalForm.prepend(modalAlert);
+  }
+
+  function successMessage() {
+    const message = createElement("p", {
+      textContent: `Your account has been registered. Go to `,
+    });
+    const link = createElement("a", {
+      textContent: "login",
+      href: "#",
+    });
+    link.addEventListener("click", openLoginModal);
+    message.append(link);
+    return message;
+  }
+
   async function onFormSubmit(e) {
     e.preventDefault();
-    const modalError = document.querySelector(".modal-error");
 
     const nameInputValidation = validateInput(nameInput, {
       minLength: 5,
@@ -92,7 +118,7 @@ function registerModal() {
       !emailInputValidation ||
       !passwordInputValidation
     )
-      return;
+      return modalAlert("Please make sure all fields are filled in correctly");
 
     const userInfo = {
       name: nameInput.value,
@@ -104,16 +130,10 @@ function registerModal() {
       const register = await registerUser(userInfo);
       if (register.error) throw register.error;
       if (register.success) {
-        console.log("user registered");
-        openLoginModal();
+        modalAlert(successMessage());
       }
     } catch (err) {
-      if (modalError) return (modalError.textContent = capitalize(err));
-      const newModalError = createElement("p", {
-        textContent: capitalize(err),
-        className: "modal-error",
-      });
-      modalForm.prepend(newModalError);
+      modalAlert(err);
     }
   }
 

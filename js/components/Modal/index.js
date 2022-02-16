@@ -29,6 +29,7 @@ class Modal {
   close() {
     this.modalContainer.innerHTML = "";
     this.modalContainer.remove();
+    document.body.style.overflow = "auto";
   }
 
   onClickOutside() {
@@ -38,6 +39,7 @@ class Modal {
   show(modalMarkup = null) {
     if (!modalMarkup) return;
     this.modalDiv.innerHTML = "";
+    document.body.style.overflow = "hidden";
 
     this.modalDiv.append(modalMarkup);
     this.modalContainer.append(this.modalDiv);
