@@ -7,3 +7,4 @@ export const mainContainer = document.querySelector("main .container");
 export function addSection(node) {
   mainContainer.insertBefore(node, categoriesSection);
 }
+export const loader = document.querySelector(".loader");

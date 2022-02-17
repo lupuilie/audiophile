@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
-  <body>
+  <body class="light-bg">
     <header>
       <div class="header container">
         <a href="#" class="mobile-menu-toggle"
@@ -63,33 +63,39 @@
       <div class="wrapper">
         <ul class="product-categories container">
           <li class="category">
-            <a href="#" class="link">
+            <a href="./category.html?c=headphones" class="link">
               <img
                 src="./images/shared/desktop/image-category-thumbnail-headphones.png"
                 alt="Headphones category thumbnail"
               />
               <p class="bold title">Headphones</p>
-              <p class="sub-title shop-link">Shop</p>
+              <p class="sub-title shop-link">
+                Shop <i data-feather="chevron-right" class="feather-18"></i>
+              </p>
             </a>
           </li>
           <li class="category">
-            <a href="#" class="link">
+            <a href="./category.html?c=speakers" class="link">
               <img
                 src="./images/shared/desktop/image-category-thumbnail-speakers.png"
                 alt="Speakers category thumbnail"
               />
               <p class="bold title">Speakers</p>
-              <p class="sub-title shop-link">Shop</p>
+              <p class="sub-title shop-link">
+                Shop <i data-feather="chevron-right" class="feather-18"></i>
+              </p>
             </a>
           </li>
           <li class="category">
-            <a href="#" class="link">
+            <a href="./category.html?c=earphones" class="link">
               <img
                 src="./images/shared/desktop/image-category-thumbnail-earphones.png"
                 alt="earphones category thumbnail"
               />
               <p class="bold title">Earphones</p>
-              <p class="sub-title shop-link">Shop</p>
+              <p class="sub-title shop-link">
+                Shop <i data-feather="chevron-right" class="feather-18"></i>
+              </p>
             </a>
           </li>
         </ul>
@@ -100,88 +106,122 @@
         <section class="breadcrumbs">
           <a href="#" onclick="history.back()">Go Back</a>
         </section>
-        <!-- Loader -->
-        <div class="loader"></div>
-        <!-- Product -->
-        <section class="categories">
-          <ul class="product-categories">
-            <li class="category">
-              <a href="#" class="link">
+        <div class="checkout-sections">
+          <section class="checkout">
+            <h1 class="h3">Checkout</h1>
+            <form class="checkout-form">
+              <p class="sub-title orange">Billing Details</p>
+              <div class="input-group row">
+                <div class="input-group">
+                  <label>
+                    <span>Name</span>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Full Name"
+                    />
+                  </label>
+                </div>
+                <div class="input-group">
+                  <label class="wrong" data-error="Email validation error">
+                    <span>Email Address</span>
+                    <input
+                      type="email"
+                      class="form-control"
+                      placeholder="example@domain.com"
+                    />
+                  </label>
+                </div>
+              </div>
+              <div class="input-group w-50">
+                <label>
+                  <span>Phone Number</span>
+                  <input
+                    type="tel"
+                    class="form-control"
+                    placeholder="+0755 555 555"
+                  />
+                </label>
+              </div>
+              <p class="sub-title orange">Shipping Info</p>
+              <div class="input-group">
+                <label>
+                  <span>Your Address</span>
+                  <input
+                    type="address"
+                    class="form-control"
+                    placeholder="Where we can deliver your products?"
+                  />
+                </label>
+              </div>
+              <div class="input-group row">
+                <div class="input-group">
+                  <label>
+                    <span>ZIP Code</span>
+                    <input
+                      type="tel"
+                      class="form-control"
+                      placeholder="123456"
+                    />
+                  </label>
+                </div>
+                <div class="input-group">
+                  <label>
+                    <span>City</span>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Iași"
+                    />
+                  </label>
+                </div>
+              </div>
+              <div class="input-group w-50">
+                <label>
+                  <span>Country</span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Romania"
+                  />
+                </label>
+              </div>
+              <p class="sub-title orange">Payment Details</p>
+              <div class="input-group row">
+                <label>Payment Method</label>
+                <div class="column">
+                  <div class="input-group">
+                    <label class="radio">
+                      <input type="radio" name="payment" />
+                      <span class="form-control">Pay Online</span>
+                    </label>
+                  </div>
+                  <div class="input-group">
+                    <label class="radio">
+                      <input type="radio" name="payment" checked />
+                      <span class="form-control">Cash on Delivery</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="delivery-info hidden-xs hidden-sm hidden-md">
                 <img
-                  src="./images/shared/desktop/image-category-thumbnail-headphones.png"
-                  alt="Headphones category thumbnail"
+                  src="./images/shared/icons/icon-cash-on-delivery.svg"
+                  alt="Cash on delivery illustration"
                 />
-                <p class="bold title">Headphones</p>
-                <p class="sub-title shop-link">
-                  Shop <i data-feather="chevron-right" class="feather-18"></i>
+                <p>
+                  The 'Cash on Delivery' option enables you to pay in cash when
+                  our delivery courier arrives at your residence. Just make sure
+                  your address is correct so that your order will not be
+                  cancelled.
                 </p>
-              </a>
-            </li>
-            <li class="category">
-              <a href="#" class="link">
-                <img
-                  src="./images/shared/desktop/image-category-thumbnail-speakers.png"
-                  alt="Speakers category thumbnail"
-                />
-                <p class="bold title">Speakers</p>
-                <p class="sub-title shop-link">
-                  Shop <i data-feather="chevron-right" class="feather-18"></i>
-                </p>
-              </a>
-            </li>
-            <li class="category">
-              <a href="#" class="link">
-                <img
-                  src="./images/shared/desktop/image-category-thumbnail-earphones.png"
-                  alt="earphones category thumbnail"
-                />
-                <p class="bold title">Earphones</p>
-                <p class="sub-title shop-link">
-                  Shop <i data-feather="chevron-right" class="feather-18"></i>
-                </p>
-              </a>
-            </li>
-          </ul>
-        </section>
-
-        <section class="best-gear">
-          <div class="image">
-            <picture>
-              <source
-                media="(max-width: 500px)"
-                srcset="./images/shared/mobile/image-best-gear.jpg"
-              />
-              <source
-                media="(min-width: 992px)"
-                srcset="./images/shared/desktop/image-best-gear.jpg"
-              />
-              <source
-                media="(min-width: 501px)"
-                srcset="./images/shared/tablet/image-best-gear.jpg"
-              />
-              <img
-                src="./images/shared/desktop/image-best-gear.jpg"
-                alt="Man wearing best Headphones"
-              />
-            </picture>
-          </div>
-          <div class="description">
-            <div class="wrapper">
-              <h3 class="title h4">
-                Bringing you the <span class="orange">best</span> audio gear
-              </h3>
-              <p>
-                Located at the heart of New York City, Audiophile is the premier
-                store for high end headphones, earphones, speakers, and audio
-                accessories. We have a large showroom and luxury demonstration
-                rooms available for you to browse and experience a wide range of
-                our products. Stop by our store to meet some of the fantastic
-                people who make Audiophile the best place to buy your portable
-                audio equipment.
-              </p>
-            </div>
-          </div>
-        </section>
+              </div>
+            </form>
+          </section>
+          <section class="summary">
+            <h2 class="h6">Summary</h2>
+          </section>
+        </div>
       </div>
     </main>
     <footer>
@@ -194,7 +234,7 @@
 
         <nav class="navigation-links footer" aria-label="Navigation links">
           <ul class="nav-links">
-            <li><a href="./" class="sub-title">Home</a></li>
+            <li><a href="/" class="sub-title">Home</a></li>
             <li>
               <a href="./category.html?c=headphones" class="sub-title"
                 >Headphones</a
@@ -229,6 +269,7 @@
               />
             </svg>
           </a>
+
           <a href="#" aria-label="Twiterr">
             <svg width="24" height="20" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -238,6 +279,7 @@
               />
             </svg>
           </a>
+
           <a href="#" aria-label="Instagram">
             <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -252,7 +294,6 @@
     </footer>
     <script src="https://unpkg.com/feather-icons@4.28.0/dist/feather.min.js"></script>
     <script type="module" src="./js/main.js"></script>
-    <script type="module" src="./js/pages/product.js"></script>
     <script>
       feather.replace();
     </script>

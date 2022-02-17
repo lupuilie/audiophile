@@ -322,6 +322,10 @@ body {
   color: black;
 }
 
+.light-bg {
+  background-color: #f1f1f1;
+}
+
 .link {
   color: black;
   text-decoration: none;
@@ -416,6 +420,7 @@ body {
 .sort-control-group .sort-control-label {
   white-space: nowrap;
   font-size: 14px;
+  padding-right: 5px;
 }
 .sort-control-group .sort-control-inner {
   position: relative;
@@ -738,6 +743,34 @@ body {
   }
 }
 
+.loader {
+  margin: 100px auto;
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #d87d4a;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  -webkit-animation: spin 1s linear infinite;
+          animation: spin 1s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 header {
   width: 100%;
   background: #191919;
@@ -1278,6 +1311,7 @@ footer .social-links svg:hover path {
 }
 .filter-products .select-view-label {
   white-space: nowrap;
+  padding-right: 5px;
 }
 .filter-products .select-view {
   display: flex;
@@ -1656,7 +1690,7 @@ footer .social-links svg:hover path {
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 10px 20px #e2e2e2;
-  padding: 1.5rem;
+  padding: 2rem;
 }
 @media (min-width: 992px) {
   .checkout-sections {
@@ -1673,6 +1707,10 @@ footer .social-links svg:hover path {
 }
 .checkout .sub-title {
   margin-top: 2rem;
+}
+.checkout .delivery-info {
+  display: flex;
+  gap: 2rem;
 }
 
 @media (max-width: 500px) {

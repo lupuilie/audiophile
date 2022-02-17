@@ -1,7 +1,7 @@
 import ProductService from "./../services/product.service.js";
 import { capitalize } from "./../utils/string.js";
 import redirect from "./../utils/redirect.js";
-import { addSection, mainEl } from "./../elements.js";
+import { addSection, loader, mainEl } from "./../elements.js";
 
 import displayError from "./displayError.js";
 import sections from "./category/sections/index.js";
@@ -86,4 +86,5 @@ function CategoryPage(productsData) {
   mainEl.prepend(sections.categoryHeading(title));
   addSection(filterProducts.node);
   addSection(productsGallery.node);
+  loader.remove();
 }

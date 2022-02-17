@@ -2,7 +2,7 @@ import createElement from "./../../../utils/createElement.js";
 import Picture from "./../../../components/Picture/index.js";
 import QtySelector from "./../../../components/QtySelector/index.js";
 import { onSubmitAddToCart } from "./../../../events.js";
-import { capitalize } from "./../../../utils/string.js";
+import { capitalize, formatUsd } from "./../../../utils/string.js";
 
 function productWrapper(productInfo) {
   if (!productInfo) return;
@@ -50,7 +50,7 @@ function productWrapper(productInfo) {
   descriptionDiv.append(createElement("p", { textContent: description }));
   descriptionDiv.append(
     createElement("h2", {
-      textContent: `$ ${price}`,
+      textContent: formatUsd(price),
       className: "price",
     })
   );

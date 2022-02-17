@@ -7,6 +7,10 @@
   .sub-title {
     margin-top: 2rem;
   }
+  .delivery-info {
+    display: flex;
+    gap: 2rem;
+  }
 }
 
 @media (max-width: 500px) {

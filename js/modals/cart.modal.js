@@ -1,6 +1,7 @@
 import createElement from "../utils/createElement.js";
 import { AppCart } from "./../events.js";
 import QtySelector from "./../components/QtySelector/index.js";
+import { formatUsd } from "./../utils/string.js";
 
 function cartModal() {
   const modalWrapper = createElement("div", {
@@ -9,7 +10,7 @@ function cartModal() {
   const modalContent = createElement("div", { className: "modal-cart" });
   const modalHeader = createElement("div", { className: "modal-header" });
   modalHeader.append(
-    createElement("h6", { textContent: `Cart ${AppCart.getCount()}` })
+    createElement("h6", { textContent: `Cart (${AppCart.getCount()})` })
   );
   const cartRemoveAll = createElement("a", {
     textContent: "Remove all",
@@ -19,10 +20,15 @@ function cartModal() {
   modalHeader.append(cartRemoveAll);
   const total = createElement("div", { className: "total" });
   const totalValue = createElement("h6", {
-    textContent: `$ ${AppCart.getTotalValue()}`,
+    textContent: formatUsd(AppCart.getTotalValue()),
   });
   total.append(createElement("p", { textContent: "TOTAL" }));
   total.append(totalValue);
+  const checkoutBtn = createElement("a", {
+    href: "./checkout.html",
+    textContent: "Checkout",
+    className: "btn btn-primary checkout-btn",
+  });
 
   /* Functions */
   function emptyCartMessage() {
@@ -49,15 +55,16 @@ function cartModal() {
         alt: `${item.name} thumbnail`,
       });
       const productInfo = createElement("div", { className: "product-info" });
-      productInfo.append(
-        createElement("p", { textContent: item.name, className: "name" })
-      );
-      productInfo.append(
-        createElement("p", {
-          textContent: `$ ${item.value}`,
-          className: "price",
-        })
-      );
+      const productName = createElement("p", {
+        textContent: item.name,
+        className: "name",
+      });
+      const productPrice = createElement("p", {
+        textContent: formatUsd(item.value),
+        className: "price",
+      });
+
+      productInfo.append(productName, productPrice);
 
       const qty = new QtySelector({
         allowZero: true,
@@ -67,7 +74,8 @@ function cartModal() {
 
       function qtyChanged() {
         AppCart.setItemCount(item.id, qty.value);
-        totalValue.textContent = `$ ${AppCart.getTotalValue()}`;
+        productPrice.textContent = formatUsd(item.value);
+        totalValue.textContent = formatUsd(AppCart.getTotalValue());
         if (qty.value === 0) cartItem.remove();
         if (AppCart.getItemsCount() === 0) emptyCartMessage();
       }
@@ -84,9 +92,16 @@ function cartModal() {
     modalContent.append(modalHeader);
     modalContent.append(createItemsList(AppCart.getItems()));
     modalContent.append(total);
+    modalContent.append(checkoutBtn);
   }
 
   modalWrapper.append(modalContent);
+
+  /* Event Listeners */
+  cartRemoveAll.addEventListener("click", () => {
+    AppCart.clearContent();
+    emptyCartMessage();
+  });
 
   return modalWrapper;
 }

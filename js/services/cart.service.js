@@ -24,7 +24,7 @@ class CartService {
     this.getItems = () => cart;
     this.getItemsCount = () => cart.length;
     this.getCount = function () {
-      return cart.reduce((acc, curr) => (acc += curr.qty), 0);
+      return cart.length;
     };
     this.getTotalValue = function () {
       return cart.reduce((acc, curr) => (acc += curr.value), 0);
@@ -33,10 +33,18 @@ class CartService {
     this.setItemCount = function (itemId, newCount) {
       const product = cart.findIndex((item) => item.id === itemId);
       if (newCount === 0) cart.splice(product, 1);
-      if (newCount !== 0) cart[product].qty = newCount;
+      if (newCount !== 0) {
+        cart[product].qty = newCount;
+        cart[product].value = cart[product].qty * cart[product].price;
+      }
+      this.cartUpdated();
+    };
+    this.clearContent = () => {
+      cart = [];
       this.cartUpdated();
     };
 
+    // Update cart at every page refresh / app load
     this.cartUpdated();
   }
 
