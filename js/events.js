@@ -1,15 +1,17 @@
 import UserService from "./services/user.service.js";
-
+import CartService from "./services/cart.service.js";
+import ProductService from "./services/product.service.js";
 import Modal from "./components/Modal/index.js";
+
 import loginModal from "./modals/login.modal.js";
 import registerModal from "./modals/register.modal.js";
 import loggedUserModal from "./modals/user.modal.js";
 import cartModal from "./modals/cart.modal.js";
-import CartService from "./services/cart.service.js";
 
 const AppModal = new Modal();
 export const User = new UserService();
 export const AppCart = new CartService();
+export const Products = new ProductService();
 
 /* User */
 export const openLoggedUserModal = () => AppModal.show(loggedUserModal());

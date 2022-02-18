@@ -8,3 +8,9 @@ export function addSection(node) {
   mainContainer.insertBefore(node, categoriesSection);
 }
 export const loader = document.querySelector(".loader");
+export const checkoutSections = document.querySelector(".checkout-sections");
+export const citiesDatalist = document.querySelector("#cities-list");
+export const checkoutForm = document.querySelector(".checkout-form");
+export const checkoutSummary = document.querySelector(
+  ".checkout-sections .summary"
+);

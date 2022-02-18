@@ -16,4 +16,20 @@
       grid-column: 1 / span 2;
     }
   }
+
+  &.blur {
+    position: relative;
+    &::after {
+      content: "Your cart is empty";
+      position: absolute;
+      text-align: center;
+      padding: 2rem;
+      font-size: 45px;
+      width: 100%;
+      height: 100%;
+      background: $clr-white-75;
+      backdrop-filter: blur(3px);
+      border-radius: $default-radius;
+    }
+  }
 }

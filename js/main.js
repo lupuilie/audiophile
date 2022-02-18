@@ -5,4 +5,7 @@ import { openCartModal, openSearchModal, openUserModal } from "./events.js";
 
 navbarSearchBtn.addEventListener("click", openSearchModal);
 navbarUserBtn.addEventListener("click", openUserModal);
-navbarCartBtn.addEventListener("click", openCartModal);
+/* Disable cart modal in checkout page */
+if (window.location.pathname !== "/checkout.html") {
+  navbarCartBtn.addEventListener("click", openCartModal);
+}

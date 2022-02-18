@@ -12,7 +12,7 @@
       type="image/x-icon"
     />
 
-    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/styles.min.css" />
   </head>
   <body class="light-bg">
     <header>
@@ -27,7 +27,7 @@
         /></a>
         <nav class="navigation-links" aria-label="Navigation links">
           <ul class="nav-links">
-            <li><a href="/" class="sub-title">Home</a></li>
+            <li><a href="./" class="sub-title">Home</a></li>
             <li>
               <a href="./category.html?c=headphones" class="sub-title"
                 >Headphones</a
@@ -54,7 +54,6 @@
           ></a>
           <a href="#" class="cart-btn" aria-label="Cart CTA"
             ><i data-feather="shopping-cart"></i>
-            <!-- <span class="badge">1</span> -->
           </a>
         </div>
       </div>
@@ -106,10 +105,11 @@
         <section class="breadcrumbs">
           <a href="#" onclick="history.back()">Go Back</a>
         </section>
+
         <div class="checkout-sections">
           <section class="checkout">
             <h1 class="h3">Checkout</h1>
-            <form class="checkout-form">
+            <form class="checkout-form" id="checkout-form">
               <p class="sub-title orange">Billing Details</p>
               <div class="input-group row">
                 <div class="input-group">
@@ -119,6 +119,7 @@
                       type="text"
                       class="form-control"
                       placeholder="Full Name"
+                      id="name"
                     />
                   </label>
                 </div>
@@ -129,6 +130,7 @@
                       type="email"
                       class="form-control"
                       placeholder="example@domain.com"
+                      id="email"
                     />
                   </label>
                 </div>
@@ -140,6 +142,7 @@
                     type="tel"
                     class="form-control"
                     placeholder="+0755 555 555"
+                    id="phone"
                   />
                 </label>
               </div>
@@ -151,6 +154,7 @@
                     type="address"
                     class="form-control"
                     placeholder="Where we can deliver your products?"
+                    id="address"
                   />
                 </label>
               </div>
@@ -162,6 +166,7 @@
                       type="tel"
                       class="form-control"
                       placeholder="123456"
+                      id="zip"
                     />
                   </label>
                 </div>
@@ -171,8 +176,12 @@
                     <input
                       type="text"
                       class="form-control"
-                      placeholder="Iași"
+                      placeholder="Select city"
+                      list="cities-list"
+                      id="select-city"
+                      name="select-city"
                     />
+                    <datalist id="cities-list"> </datalist>
                   </label>
                 </div>
               </div>
@@ -182,8 +191,15 @@
                   <input
                     type="text"
                     class="form-control"
-                    placeholder="Romania"
+                    placeholder="Select country"
+                    value="Romania"
+                    list="countries-list"
+                    id="select-country"
+                    name="select-country"
+                    title="Only Romania is available for deliveries"
+                    disabled
                   />
+                  <datalist id="countries-list"> </datalist>
                 </label>
               </div>
               <p class="sub-title orange">Payment Details</p>
@@ -192,13 +208,19 @@
                 <div class="column">
                   <div class="input-group">
                     <label class="radio">
-                      <input type="radio" name="payment" />
+                      <input type="radio" name="payment" id="pay-online" />
                       <span class="form-control">Pay Online</span>
                     </label>
                   </div>
                   <div class="input-group">
                     <label class="radio">
-                      <input type="radio" name="payment" checked />
+                      <input
+                        type="radio"
+                        name="payment"
+                        value="delivery"
+                        id="pay-delivery"
+                        checked
+                      />
                       <span class="form-control">Cash on Delivery</span>
                     </label>
                   </div>
@@ -220,6 +242,7 @@
           </section>
           <section class="summary">
             <h2 class="h6">Summary</h2>
+            <div class="loader"></div>
           </section>
         </div>
       </div>
@@ -294,6 +317,7 @@
     </footer>
     <script src="https://unpkg.com/feather-icons@4.28.0/dist/feather.min.js"></script>
     <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/pages/checkout.js"></script>
     <script>
       feather.replace();
     </script>

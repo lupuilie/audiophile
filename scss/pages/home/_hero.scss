@@ -15,12 +15,29 @@
       margin: 1rem auto;
     }
   }
+  .overline,
+  h1,
+  p {
+    opacity: 0;
+    animation: slideInLeft 0.3s;
+    animation-fill-mode: forwards;
+  }
   .overline {
     color: $clr-white-50;
+  }
+  h1 {
+    animation-delay: 0.3s;
   }
   p {
     color: $clr-white-75;
     max-width: 40ch;
+    animation-delay: 0.6s;
+  }
+  .btn {
+    opacity: 0;
+    animation: fadeInScale 0.5s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.9s;
   }
 
   &::after {
@@ -35,6 +52,8 @@
     background-position: center;
     background-size: cover;
     z-index: -1;
+    animation: fadeIn 1.5s ease-in;
+    transform-origin: bottom;
   }
   @media (min-width: 460px) {
     &::after {
@@ -61,5 +80,36 @@
         margin: 1rem 0;
       }
     }
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

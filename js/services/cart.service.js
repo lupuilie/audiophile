@@ -4,6 +4,7 @@ import { navbarCartBtn } from "../elements.js";
 class CartService {
   constructor() {
     let cart = [];
+    this.shippingCost = 30;
 
     const localStorageCart = localStorage.getItem("cart");
     if (localStorageCart) cart = JSON.parse(localStorageCart);
@@ -43,6 +44,7 @@ class CartService {
       cart = [];
       this.cartUpdated();
     };
+    this.getGrandTotal = () => this.getTotalValue() + this.shippingCost;
 
     // Update cart at every page refresh / app load
     this.cartUpdated();

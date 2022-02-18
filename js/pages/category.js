@@ -1,10 +1,9 @@
-import ProductService from "./../services/product.service.js";
+import { Products } from "../events.js";
+import { addSection, loader, mainEl } from "./../elements.js";
+import sections from "./category/sections/index.js";
+import displayError from "./displayError.js";
 import { capitalize } from "./../utils/string.js";
 import redirect from "./../utils/redirect.js";
-import { addSection, loader, mainEl } from "./../elements.js";
-
-import displayError from "./displayError.js";
-import sections from "./category/sections/index.js";
 
 const url = new URL(window.location);
 const urlCategory = url.searchParams.get("c");
@@ -14,7 +13,6 @@ const urlParams = {
   sub: String(url.searchParams.get("sub") || ""),
   sort: String(url.searchParams.get("sort") || ""),
 };
-const Products = new ProductService();
 
 if (!urlCategory) redirect(404);
 if (urlCategory) getProducts();
