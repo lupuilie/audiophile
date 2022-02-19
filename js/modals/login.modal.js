@@ -8,9 +8,6 @@ import validateInput from "../utils/validateInput.js";
 import { capitalize } from "../utils/string.js";
 
 function loginModal() {
-  const modalWrapper = createElement("div", {
-    className: "container modal-wrapper",
-  });
   const modalContent = createElement("div", { className: "modal-user" });
   const modalHeader = createElement("div", { className: "modal-header" });
   modalHeader.append(createElement("h6", { textContent: "Login" }));
@@ -49,7 +46,6 @@ function loginModal() {
   p.append(registerLink);
 
   modalContent.append(modalHeader, modalForm, p);
-  modalWrapper.append(modalContent);
 
   const inputEvents = ["change", "keyup", "keydown"];
   inputEvents.forEach((event) => {
@@ -96,7 +92,7 @@ function loginModal() {
   modalForm.addEventListener("submit", onFormSubmit);
   registerLink.addEventListener("click", openRegisterModal);
 
-  return modalWrapper;
+  return modalContent;
 }
 
 export default loginModal;

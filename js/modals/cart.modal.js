@@ -4,9 +4,6 @@ import QtySelector from "./../components/QtySelector/index.js";
 import { formatUsd } from "./../utils/string.js";
 
 function cartModal() {
-  const modalWrapper = createElement("div", {
-    className: "container modal-wrapper",
-  });
   const modalContent = createElement("div", { className: "modal-cart" });
   const modalHeader = createElement("div", { className: "modal-header" });
   modalHeader.append(
@@ -95,15 +92,13 @@ function cartModal() {
     modalContent.append(checkoutBtn);
   }
 
-  modalWrapper.append(modalContent);
-
   /* Event Listeners */
   cartRemoveAll.addEventListener("click", () => {
     AppCart.clearContent();
     emptyCartMessage();
   });
 
-  return modalWrapper;
+  return modalContent;
 }
 
 export default cartModal;

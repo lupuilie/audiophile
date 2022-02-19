@@ -1,0 +1,118 @@
+@use "../abstracts" as *;
+
+.modal-checkout {
+  background: $white;
+  width: 90vw;
+  max-width: 540px;
+  padding: 1.5rem;
+  border-radius: $default-radius;
+  top: 2rem;
+  .check-icon {
+    width: 4rem;
+    height: 4rem;
+    background: $clr-orange;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+    border-radius: 50%;
+  }
+  .heading {
+    padding-top: 1rem;
+  }
+  .confirmation {
+    padding: 0.5rem 0 1rem;
+    color: $clr-black-50;
+    font-weight: 600;
+  }
+  .products-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: $clr-gray;
+    border-top-left-radius: $default-radius;
+    border-top-right-radius: $default-radius;
+    padding: 1.5rem;
+  }
+  .product {
+    display: flex;
+    align-items: center;
+  }
+  .image {
+    width: 50px;
+    flex-shrink: 0;
+    border-radius: $default-radius;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+  }
+  .info {
+    color: $clr-black-50;
+    width: 100%;
+    font-weight: 700;
+    line-height: 1.5;
+    padding-left: 5px;
+    p:first-of-type {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  .name {
+    color: $black;
+    padding-right: 5px;
+    text-transform: uppercase;
+  }
+  .value {
+    font-size: 14px;
+  }
+
+  .view-more {
+    display: block;
+    text-align: center;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid $clr-gray-100;
+    font-weight: 600;
+    font-size: 12px;
+  }
+  .grand-total {
+    text-transform: uppercase;
+    padding: 1.5rem;
+    background-color: $black;
+    color: $white;
+    border-bottom-left-radius: $default-radius;
+    border-bottom-right-radius: $default-radius;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    p {
+      color: $clr-white-50;
+    }
+  }
+  .grand-total.flex-end {
+    justify-content: flex-end;
+  }
+
+  .btn {
+    display: block;
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+
+  @media (min-width: 600px) {
+    .ordered-products {
+      display: flex;
+    }
+    .products-list {
+      flex: 2;
+      border-top-right-radius: 0;
+      border-bottom-left-radius: $default-radius;
+    }
+    .grand-total {
+      flex: 1;
+      border-top-right-radius: $default-radius;
+      border-bottom-left-radius: 0;
+    }
+  }
+}

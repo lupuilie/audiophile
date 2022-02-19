@@ -1,12 +1,8 @@
 import createElement from "./../utils/createElement.js";
 import { openLoginModal, registerUser } from "./../events.js";
 import validateInput from "../utils/validateInput.js";
-import { capitalize } from "./../utils/string.js";
 
 function registerModal() {
-  const modalWrapper = createElement("div", {
-    className: "container modal-wrapper",
-  });
   const modalContent = createElement("div", { className: "modal-user" });
   const modalHeader = createElement("div", { className: "modal-header" });
   modalHeader.append(createElement("h6", { textContent: "Register" }));
@@ -60,7 +56,6 @@ function registerModal() {
   p.append(loginLink);
 
   modalContent.append(modalHeader, modalForm, p);
-  modalWrapper.append(modalContent);
 
   const inputEvents = ["change", "keyup", "keydown"];
   inputEvents.forEach((event) => {
@@ -141,7 +136,7 @@ function registerModal() {
   modalForm.addEventListener("submit", onFormSubmit);
   loginLink.addEventListener("click", openLoginModal);
 
-  return modalWrapper;
+  return modalContent;
 }
 
 export default registerModal;

@@ -1,4 +1,4 @@
-import { AppCart, Products } from "./../events.js";
+import { AppCart, openCheckoutModal } from "./../events.js";
 import {
   checkoutSections,
   citiesDatalist,
@@ -23,14 +23,19 @@ checkoutSummary.append(productsList(AppCart.getItems()));
 summaryLoader.remove();
 checkoutSummary.append(summaryInfo(AppCart));
 const submit = createElement("button", {
-  textContent: "Continue & Pay",
+  textContent: "Send Order",
   type: "submit",
   className: "btn btn-primary",
+  form: "checkout-form",
 });
 checkoutSummary.append(submit);
 
+formValidation(checkoutForm);
+
 checkoutForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  const formData = formValidation(checkoutForm);
-  if (formData.success) console.log(formData);
+  const formData = formValidation(checkoutForm, { formSubmit: true });
+  console.log(formData);
+  if (formData.success) console.log("totul ok");
+  openCheckoutModal();
 });

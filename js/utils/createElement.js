@@ -14,6 +14,7 @@ function createElement(
     value = null,
     media = null,
     srcset = null,
+    form = null,
   } = {}
 ) {
   const element = document.createElement(tagname);
@@ -31,6 +32,7 @@ function createElement(
   if (value || value === 0) element.value = value;
   if (media) element.setAttribute("media", media);
   if (srcset) element.setAttribute("srcset", srcset);
+  if (form) element.setAttribute("form", form);
 
   return element;
 }

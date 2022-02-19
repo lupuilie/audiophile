@@ -14,7 +14,7 @@ class CountriesApi {
       );
       return cities;
     } catch (err) {
-      console.log(err);
+      throw err;
     }
   }
 }
