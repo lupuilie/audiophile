@@ -3,9 +3,6 @@ import { User, logoutUser } from "../events.js";
 
 function loggedUserModal() {
   const userInfo = User.getLoggedUser();
-  const modalWrapper = createElement("div", {
-    className: "container modal-wrapper",
-  });
   const modalContent = createElement("div", { className: "modal-user" });
   const modalHeader = createElement("div", { className: "modal-header" });
   modalHeader.append(
@@ -24,9 +21,8 @@ function loggedUserModal() {
   logoutBtn.addEventListener("click", logoutUser);
 
   modalContent.append(modalHeader, loggedUserInfo, logoutBtn);
-  modalWrapper.append(modalContent);
 
-  return modalWrapper;
+  return modalContent;
 }
 
 export default loggedUserModal;

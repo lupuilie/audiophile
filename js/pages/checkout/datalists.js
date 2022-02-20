@@ -7,9 +7,11 @@ export function addCities(datalist, country = "romania") {
     .getCities()
     .then((res) => {
       if (!res.data) return;
+      console.log(res);
       const { data: cities } = res;
+
       for (const city of cities) {
-        const option = createElement("option", { value: city });
+        const option = createElement("option", { value: city.name });
         datalist.append(option);
       }
     })

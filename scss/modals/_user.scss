@@ -1,9 +1,11 @@
 @use "../abstracts" as *;
 
 .modal-user {
+  margin-top: 100px;
   width: 100%;
   max-width: 450px;
-  top: 100px;
+  border-radius: $default-radius;
+  background: $white;
   .modal-form > * {
     margin: 0.5rem 0;
   }

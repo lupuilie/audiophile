@@ -1,6 +1,8 @@
 import POST from "../utils/POST.js";
 import GET from "../utils/GET.js";
 
+const endpoint = "./api/cities.json";
+
 class CountriesApi {
   constructor(country) {
     this.country = country;
@@ -8,11 +10,8 @@ class CountriesApi {
   async getCities() {
     try {
       const data = { country: this.country };
-      const cities = await POST(
-        "https://countriesnow.space/api/v0.1/countries/cities",
-        data
-      );
-      return cities;
+      const cities = await GET(endpoint, data);
+      return { data: cities };
     } catch (err) {
       throw err;
     }

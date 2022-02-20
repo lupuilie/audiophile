@@ -1,9 +1,11 @@
 @use "../abstracts" as *;
 
 .modal-cart {
+  margin-top: 100px;
   width: 100%;
   max-width: 450px;
-  top: 100px;
+  border-radius: $default-radius;
+  background: $white;
   .cart-empty {
     text-align: center;
     padding: 0.5rem;
