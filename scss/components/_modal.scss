@@ -29,7 +29,14 @@
   .modal-close {
     color: $white;
     display: none;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
     z-index: 1;
+    &:hover {
+      color: $clr-orange;
+    }
   }
   @media (min-width: $bp-tablet) {
     .modal-close {

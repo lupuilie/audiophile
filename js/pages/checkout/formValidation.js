@@ -1,5 +1,5 @@
 import validateInput from "../../utils/validateInput.js";
-import { User } from "../../events.js";
+import { AppCart, User } from "../../events.js";
 
 function formValidation(form, { formSubmit = false } = {}) {
   const name = form.querySelector("#name");

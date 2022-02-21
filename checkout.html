@@ -109,7 +109,7 @@
         <div class="checkout-sections">
           <section class="checkout">
             <h1 class="h3">Checkout</h1>
-            <form class="checkout-form" id="checkout-form">
+            <form class="checkout-form" id="checkout-form" autocomplete="off">
               <p class="sub-title orange">Billing Details</p>
               <div class="input-group row">
                 <div class="input-group">
@@ -120,6 +120,7 @@
                       class="form-control"
                       placeholder="Full Name"
                       id="name"
+                      autocomplete="no"
                     />
                   </label>
                 </div>
@@ -131,6 +132,7 @@
                       class="form-control"
                       placeholder="example@domain.com"
                       id="email"
+                      autocomplete="no"
                     />
                   </label>
                 </div>
@@ -143,6 +145,7 @@
                     class="form-control"
                     placeholder="0123 456 789"
                     id="phone"
+                    autocomplete="no"
                   />
                 </label>
               </div>
@@ -155,6 +158,7 @@
                     class="form-control"
                     placeholder="Where we can deliver your products?"
                     id="address"
+                    autocomplete="no"
                   />
                 </label>
               </div>
@@ -167,6 +171,7 @@
                       class="form-control"
                       placeholder="123456"
                       id="zip"
+                      autocomplete="no"
                     />
                   </label>
                 </div>
@@ -180,7 +185,7 @@
                       list="cities-list"
                       id="select-city"
                       name="select-city"
-                      autocomplete="off"
+                      autocomplete="no"
                     />
                     <datalist id="cities-list"> </datalist>
                   </label>

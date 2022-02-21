@@ -15,6 +15,7 @@ function createElement(
     media = null,
     srcset = null,
     form = null,
+    label = null,
   } = {}
 ) {
   const element = document.createElement(tagname);
@@ -33,6 +34,7 @@ function createElement(
   if (media) element.setAttribute("media", media);
   if (srcset) element.setAttribute("srcset", srcset);
   if (form) element.setAttribute("form", form);
+  if (label) element.ariaLabel = label;
 
   return element;
 }

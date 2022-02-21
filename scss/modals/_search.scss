@@ -3,10 +3,115 @@
 .modal-search {
   width: 100%;
   height: 100vh;
-  top: 0;
   left: 50%;
   max-width: 768px;
-  transform: translateX(-50%);
+  padding: 0;
+
   .title {
+    display: none;
+    margin-top: 100px;
+    margin-bottom: 1rem;
+    color: $white;
+    text-align: center;
+  }
+  .modal-search-wrapper {
+    background-color: $white;
+    height: 100%;
+  }
+  .search-form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 1.5rem;
+  }
+  .input-group {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background: $clr-gray;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    border: 1px solid #dadada;
+  }
+  .search-input {
+    width: 100%;
+    height: 2.5rem;
+    padding: 1.5rem;
+    padding-left: 3.5rem;
+    padding-right: 3rem;
+    border: 3px dotted transparent;
+    outline: none;
+    font-size: 16px;
+    font-weight: lighter;
+    background: transparent;
+  }
+  button {
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+  .search-submit {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 3rem;
+    border-right: 1px solid #dadada;
+  }
+  .clear-input {
+    display: none;
+    position: absolute;
+    right: 1rem;
+    padding: 0;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #aaa;
+    color: $white;
+    &:hover {
+      background: #858585;
+    }
+  }
+  .modal-back {
+    margin-right: 5px;
+    text-align: left;
+  }
+
+  .search-results-wrapper {
+    padding: 0.5rem 1.5rem;
+  }
+  .results {
+    list-style: none;
+    margin-top: 0.5rem;
+    min-height: 100px;
+    li {
+      padding: 5px 0;
+    }
+  }
+
+  @media (min-width: $bp-tablet) {
+    height: 100%;
+    .title {
+      display: block;
+    }
+    .modal-search-wrapper {
+      border-radius: $default-radius;
+    }
+    .modal-back {
+      display: none;
+    }
+    .input-group {
+      background: transparent;
+      border-radius: 0;
+      border-color: transparent;
+    }
+    .search-submit {
+      border-color: transparent;
+    }
+    .search-input:active,
+    .search-input:focus {
+      border: 3px dotted $clr-orange;
+    }
   }
 }

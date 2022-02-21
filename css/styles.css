@@ -728,7 +728,14 @@ body {
 .modal .modal-close {
   color: white;
   display: none;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
   z-index: 1;
+}
+.modal .modal-close:hover {
+  color: #d87d4a;
 }
 @media (min-width: 768px) {
   .modal .modal-close {
@@ -1994,7 +2001,6 @@ footer .social-links svg:hover path {
   border-radius: 8px;
   background: white;
   margin-top: 50px;
-  margin-bottom: 50px;
 }
 .modal-checkout .check-icon {
   width: 4rem;
@@ -2088,6 +2094,9 @@ footer .social-links svg:hover path {
   margin-top: 1.5rem;
 }
 @media (min-width: 600px) {
+  .modal-checkout {
+    margin-top: 100px;
+  }
   .modal-checkout .ordered-products {
     display: flex;
   }
@@ -2106,8 +2115,114 @@ footer .social-links svg:hover path {
 .modal-search {
   width: 100%;
   height: 100vh;
-  top: 0;
   left: 50%;
   max-width: 768px;
-  transform: translateX(-50%);
+  padding: 0;
+}
+.modal-search .title {
+  display: none;
+  margin-top: 100px;
+  margin-bottom: 1rem;
+  color: white;
+  text-align: center;
+}
+.modal-search .modal-search-wrapper {
+  background-color: white;
+  height: 100%;
+}
+.modal-search .search-form {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem 1.5rem;
+}
+.modal-search .input-group {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: #f1f1f1;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  border: 1px solid #dadada;
+}
+.modal-search .search-input {
+  width: 100%;
+  height: 2.5rem;
+  padding: 1.5rem;
+  padding-left: 3.5rem;
+  padding-right: 3rem;
+  border: 3px dotted transparent;
+  outline: none;
+  font-size: 16px;
+  font-weight: lighter;
+  background: transparent;
+}
+.modal-search button {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.modal-search .search-submit {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 3rem;
+  border-right: 1px solid #dadada;
+}
+.modal-search .clear-input {
+  display: none;
+  position: absolute;
+  right: 1rem;
+  padding: 0;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #aaa;
+  color: white;
+}
+.modal-search .clear-input:hover {
+  background: #858585;
+}
+.modal-search .modal-back {
+  margin-right: 5px;
+  text-align: left;
+}
+.modal-search .search-results-wrapper {
+  padding: 0.5rem 1.5rem;
+}
+.modal-search .results {
+  list-style: none;
+  margin-top: 0.5rem;
+  min-height: 100px;
+}
+.modal-search .results li {
+  padding: 5px 0;
+}
+@media (min-width: 768px) {
+  .modal-search {
+    height: 100%;
+  }
+  .modal-search .title {
+    display: block;
+  }
+  .modal-search .modal-search-wrapper {
+    border-radius: 8px;
+  }
+  .modal-search .modal-back {
+    display: none;
+  }
+  .modal-search .input-group {
+    background: transparent;
+    border-radius: 0;
+    border-color: transparent;
+  }
+  .modal-search .search-submit {
+    border-color: transparent;
+  }
+  .modal-search .search-input:active,
+.modal-search .search-input:focus {
+    border: 3px dotted #d87d4a;
+  }
 }

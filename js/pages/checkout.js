@@ -35,7 +35,5 @@ formValidation(checkoutForm);
 checkoutForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const formData = formValidation(checkoutForm, { formSubmit: true });
-  console.log(formData);
-  if (formData.success) console.log("totul ok");
-  openCheckoutModal();
+  if (formData.success) openCheckoutModal();
 });

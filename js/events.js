@@ -9,8 +9,9 @@ import registerModal from "./modals/register.modal.js";
 import loggedUserModal from "./modals/user.modal.js";
 import cartModal from "./modals/cart.modal.js";
 import checkoutModal from "./modals/checkout.modal.js";
+import searchModal from "./modals/search.modal.js";
 
-const AppModal = new Modal();
+export const AppModal = new Modal();
 export const User = new UserService();
 export const AppCart = new CartService();
 export const Products = new ProductService();
@@ -24,13 +25,9 @@ export function openUserModal() {
   if (User.getLoggedUser()) openLoggedUserModal();
 }
 export const openCheckoutModal = () => {
-  redirect;
   AppModal.show(checkoutModal(), {
     centered: true,
-    onClose: () => {
-      // AppCart.clearContent();
-      // redirect("home");
-    },
+    disableOutsideClick: true,
   });
 };
 
@@ -57,12 +54,24 @@ export const logoutUser = () => {
 };
 
 /* Search */
-export const openSearchModal = () => console.log("open search modal");
+export const openSearchModal = () =>
+  AppModal.show(searchModal(), {
+    centered: true,
+    useMarginBottom: false,
+    useCloseBtn: true,
+    disableOutsideClick: true,
+    useContainer: false,
+    useDarkerBg: true,
+  });
+
 /* Cart */
 export const openCartModal = () => AppModal.show(cartModal());
-
 export const onSubmitAddToCart = (product) => {
   AppCart.addProduct(product);
 };
 
-/* Checkout */
+/* Order Send */
+export const sendOrder = (orderContent) => {
+  console.log("Order complete. Content: ", orderContent);
+  AppCart.clearContent();
+};

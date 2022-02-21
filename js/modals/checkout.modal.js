@@ -1,5 +1,5 @@
 import createElement from "../utils/createElement.js";
-import { AppCart } from "./../events.js";
+import { AppCart, sendOrder } from "./../events.js";
 import { formatUsd } from "./../utils/string.js";
 
 function checkoutModal() {
@@ -108,6 +108,9 @@ function checkoutModal() {
     orderedProducts,
     goHomeBtn
   );
+
+  /* Send order to 'backend' */
+  sendOrder(AppCart.getItems());
 
   return modalContent;
 }
