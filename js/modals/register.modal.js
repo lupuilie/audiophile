@@ -124,9 +124,7 @@ function registerModal() {
     try {
       const register = await registerUser(userInfo);
       if (register.error) throw register.error;
-      if (register.success) {
-        modalAlert(successMessage());
-      }
+      if (register.success) openLoginModal();
     } catch (err) {
       modalAlert(err);
     }
