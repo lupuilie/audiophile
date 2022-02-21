@@ -11,6 +11,10 @@ import cartModal from "./modals/cart.modal.js";
 import checkoutModal from "./modals/checkout.modal.js";
 import searchModal from "./modals/search.modal.js";
 
+import { onCheckoutPage } from "./main.js";
+import { checkoutForm } from "./elements.js";
+import formValidation from "./pages/checkout/formValidation.js";
+
 export const AppModal = new Modal();
 export const User = new UserService();
 export const AppCart = new CartService();
@@ -43,7 +47,10 @@ export async function registerUser(userInfo) {
 export async function loginUser(userInfo) {
   try {
     const login = await User.login(userInfo);
-    if (login) return { success: true };
+    if (login) {
+      if (onCheckoutPage) formValidation(checkoutForm);
+      return { success: true };
+    }
   } catch (err) {
     return err;
   }

@@ -19,6 +19,7 @@ class ProductsGallerySection {
       this.applyFilter();
     };
     this.applyFilter = (newFilter) => {
+      this.node.style.visibility = "hidden";
       this.currentFilters = { ...this.currentFilters, ...newFilter };
 
       /* Delete filter if is empty  */
@@ -34,6 +35,7 @@ class ProductsGallerySection {
     };
 
     this.applySort = (sort) => {
+      this.node.style.visibility = "hidden";
       this.currentSort = sort;
       let sortedProducts = [...this.getFilteredProducts()];
       switch (sort) {
@@ -67,6 +69,9 @@ class ProductsGallerySection {
 
   setProducts(products) {
     this.node.innerHTML = "";
+    setTimeout(() => {
+      this.node.removeAttribute("style");
+    }, 250);
     if (products.length === 0) console.log("list empty do something");
     products.forEach((product) => this.addProduct(product));
   }

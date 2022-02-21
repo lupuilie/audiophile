@@ -35,7 +35,12 @@ function formValidation(form, { formSubmit = false } = {}) {
       id: "phone",
       element: phone,
       value: phone.value,
-      validations: { required: true, numbersOnly: true, maxLength: 12 },
+      validations: {
+        required: true,
+        numbersOnly: true,
+        minLength: 10,
+        maxLength: 10,
+      },
     },
     {
       id: "address",

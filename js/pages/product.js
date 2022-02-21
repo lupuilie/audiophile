@@ -15,6 +15,7 @@ async function getProduct() {
     const productInfo = await Products.getProduct(urlProductSlug);
     productPage(productInfo);
   } catch (err) {
+    loader.remove();
     displayError(err);
   }
 }

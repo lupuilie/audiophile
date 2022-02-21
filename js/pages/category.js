@@ -22,6 +22,7 @@ async function getProducts() {
     const productsData = await Products.getByCategory(urlCategory);
     CategoryPage(productsData);
   } catch (err) {
+    loader.remove();
     displayError(err);
   }
 }
