@@ -1,3 +1,3 @@
 # Audiophile e-commerce website
 
-Final project for Wantsom Front-End Course
+Final project for Wantsome Front-End Course
