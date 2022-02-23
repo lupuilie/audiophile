@@ -31,6 +31,7 @@ class Modal {
     this.modalDiv.classList.remove("centered");
     this.modalDiv.classList.remove("container");
     this.modalContainer.remove();
+    this.useMarginBottom = false;
     document.body.style.overflow = "auto";
     if (this.onClose) this.onClose();
   }
@@ -59,10 +60,10 @@ class Modal {
 
     this.modalDiv.innerHTML = "";
     document.body.style.overflow = "hidden";
-    if (disableOutsideClick === true) this.outsideClickDisabled = true;
-    if (onClose) this.onClose = onClose;
+    this.outsideClickDisabled = disableOutsideClick ?? false;
+    this.onClose = onClose ?? null;
+    this.modalDiv.style.marginBottom = useMarginBottom ? "100px" : 0;
     if (centered === true) this.modalDiv.classList.add("centered");
-    if (useMarginBottom) this.modalDiv.style.marginBottom = "100px";
     if (useCloseBtn) this.modalDiv.append(this.modalCloseBtn);
     if (useContainer) this.modalDiv.classList.add("container");
     if (useDarkerBg) this.modalContainer.style.background = "rgba(0,0,0,0.8)";
